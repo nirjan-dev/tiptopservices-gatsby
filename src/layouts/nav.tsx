@@ -1,54 +1,57 @@
 import React from "react"
-import {
-  IoIosInformationCircle,
-  IoIosGrid,
-  IoIosMail,
-  IoIosApps,
-  IoIosList,
-} from "react-icons/io"
+import { IoIosInformationCircle, IoIosMail, IoIosList } from "react-icons/io"
 import { Image, Flex, Box } from "rebass"
-import styled from "@emotion/styled"
+import styled from "../components/styled"
 import Logo from "../assets/images/tiptop2.png"
 const StyledNav = styled.nav`
   .nav-icon {
     width: 2rem;
     height: 2rem;
-    margin: 0 auto;
   }
 
   .nav {
     list-style-type: none;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: ${props => props.theme.colors.bg};
   }
 
   .nav-item {
     text-align: center;
-    display: block;
-    color: ${props => props.theme.colors.gray["500"]};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: ${props => props.theme.colors.gray};
     text-decoration: none;
+    font-family: ${props => props.theme.fonts.heading};
+
+    &.active,
+    &:hover,
+    &:active {
+      color: ${props => props.theme.colors.primary};
+    }
   }
 `
 
-function Nav() {
+function Nav({ onOpenClick }) {
   return (
     <StyledNav role="navigation">
-      <Image display={["none", "block"]} src="https://gradientjoy.com/200" />
+      <Image display={["none", "block"]} src={Logo} />
 
       <Flex
-        boxShadow="0px -4px 10px rgba(0, 0, 0, 0.1)"
         className="nav"
         as="ul"
         padding="3"
         justifyContent="space-between"
         alignItems="center"
-        sx={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-        }}
       >
         <Box as="li">
-          <a href="#" className="nav-item">
+          <a href="#" className="nav-item active">
             <img className="nav-icon" src={Logo} alt="tiptop pest control" />
             <span>Home</span>
           </a>
@@ -67,7 +70,14 @@ function Nav() {
           </a>
         </Box>
         <Box as="li">
-          <a href="#" className="nav-item">
+          <a
+            href="#"
+            onClick={e => {
+              e.preventDefault()
+              onOpenClick()
+            }}
+            className="nav-item"
+          >
             <IoIosMail className="nav-icon" />
 
             <span>Contact</span>

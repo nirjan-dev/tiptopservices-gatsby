@@ -1,118 +1,259 @@
-import { preset } from "@rebass/preset"
 export const customTheme = {
+  breakpoints: ["40em", "52em", "64em", "80em"],
   colors: {
-    ...preset,
-    ...preset.colors,
+    primary: "#009245",
 
-    primary: {
-      "50": "#C0DFAA",
-      "100": "#98D188",
-      "200": "#6AC266",
-      "300": "#44B34C",
-      "400": "#22A345",
-      "500": "#009245",
-      "600": "#008258",
-      "700": "#007165",
-      "800": "#005560",
-      "900": "#00334E",
-    },
-    secondary: {
-      "50": "#AAFFD8",
-      "100": "#88FFE2",
-      "200": "#66FFF7",
-      "300": "#44F2FF",
-      "400": "#22C3FF",
-      "500": "#0088ff",
-      "600": "#0046DF",
-      "700": "#0010BF",
-      "800": "#0A009F",
-      "900": "#250080",
-    },
-    secondaryLight: {
-      "50": "#DCEEEF",
-      "100": "#CEE2E9",
-      "200": "#C0D3E2",
-      "300": "#B3C2DB",
-      "400": "#A6AED4",
-      "500": "#9999cc",
-      "600": "#8F85B3",
-      "700": "#83719A",
-      "800": "#745E81",
-      "900": "#634B68",
-    },
-    primaryLight: {
-      "50": "#EFFED1",
-      "100": "#DDFCBF",
-      "200": "#C5FAAE",
-      "300": "#A8F89E",
-      "400": "#8EF595",
-      "500": "#7ef19c",
-      "600": "#6DD59E",
-      "700": "#5CB89B",
-      "800": "#4B9A92",
-      "900": "#3B757D",
-    },
-    gray: {
-      "50": "#BBBBBB",
-      "100": "#A0A0A0",
-      "200": "#858585",
-      "300": "#696969",
-      "400": "#4E4E4E",
-      "500": "#333333",
-      "600": "#2D2D2D",
-      "700": "#262626",
-      "800": "#202020",
-      "900": "#1A1A1A",
-    },
-    light: {
-      "50": "#FEF7FA",
-      "100": "#FDF2F4",
-      "200": "#FCECED",
-      "300": "#F9EAE2",
-      "400": "#F8EBDE",
-      "500": "#f6edd9",
-      "600": "#D8D5BD",
-      "700": "#B7B9A2",
-      "800": "#949B87",
-      "900": "#737C6C",
-    },
-    lighter: {
-      "50": "#FFFFFC",
-      "100": "#FEFFFA",
-      "200": "#FCFFF8",
-      "300": "#F9FEF6",
-      "400": "#F2FEF2",
-      "500": "#f0fdf2",
-      "600": "#D2DED6",
-      "700": "#B4BEBA",
-      "800": "#969F9D",
-      "900": "#787F7F",
-    },
+    secondary: "#0088ff",
+
+    secondaryLight: "#9999cc",
+
+    primaryLight: "#7ef19c",
+
+    gray: "#333333",
+
+    light: "#f6edd9",
+
+    lighter: "#f0fdf2",
+
+    bg: "#fff",
   },
   fonts: {
     body: "Montserrat,Tahoma, Verdana, Segoe, sans-serif",
     heading: "Nunito,Verdana, Geneva, sans-serif",
   },
-  fontSizes: {
-    xs: "0.7rem",
-    sm: "1rem",
-    md: "1.4rem",
-    lg: "1.9rem",
-    xl: "2.8rem",
-    "2xl": "3.9rem",
-    "3xl": "5.6rem",
-  },
+  fontSizes: [
+    "0.7rem",
+    "1rem",
+    "1.4rem",
+    "1.9rem",
+    "2.8rem",
+    "3.9rem",
+    "5.6rem",
+  ],
   fontWeights: {
     normal: 400,
     medium: 500,
     bold: 700,
   },
   lineHeights: {
-    normal: "normal",
-    base: "1.5",
-    shorter: "1.1",
-    short: "1.2",
-    tall: "1.6",
-    taller: "1.8",
+    body: 1.7,
+    heading: 1.2,
   },
+  space: [
+    "0.2rem",
+    "0.5rem",
+    "0.7rem",
+    "1rem",
+    "1.2rem",
+    "1.5rem",
+    "1.7rem",
+    "2rem",
+    "2.2rem",
+  ],
+  sizes: {
+    avatar: 48,
+  },
+  radii: {
+    default: 4,
+    circle: 99999,
+  },
+  shadows: {
+    card: "0 0 4px rgba(0, 0, 0, .125)",
+  },
+  // rebass variants
+  text: {
+    heading: {
+      fontFamily: "heading",
+      lineHeight: "heading",
+      fontWeight: "heading",
+    },
+    display: {
+      fontFamily: "heading",
+      fontWeight: "heading",
+      lineHeight: "heading",
+      fontSize: [5, 6, 7],
+    },
+    caps: {
+      textTransform: "uppercase",
+      letterSpacing: "0.1em",
+    },
+  },
+  variants: {
+    avatar: {
+      width: "avatar",
+      height: "avatar",
+      borderRadius: "circle",
+    },
+    card: {
+      p: 2,
+      bg: "background",
+      boxShadow: "card",
+    },
+    link: {
+      color: "primary",
+    },
+    nav: {
+      fontSize: 1,
+      fontWeight: "bold",
+      display: "inline-block",
+      p: 2,
+      color: "inherit",
+      textDecoration: "none",
+      ":hover,:focus,.active": {
+        color: "primary",
+      },
+    },
+  },
+  buttons: {
+    primary: {
+      fontSize: 2,
+      fontWeight: "bold",
+      bg: "primary",
+      borderRadius: "default",
+      color: "bg",
+    },
+    outline: {
+      variant: "buttons.primary",
+      color: "primary",
+      bg: "transparent",
+      boxShadow: "inset 0 0 2px",
+    },
+    secondary: {
+      variant: "buttons.primary",
+      color: "background",
+      bg: "secondary",
+    },
+  },
+  styles: {
+    root: {
+      fontFamily: "body",
+      fontWeight: "body",
+      lineHeight: "body",
+    },
+  },
+}
+
+export type customThemeType = {
+  breakpoints: ["40em", "52em", "64em", "80em"]
+  colors: {
+    primary: "#009245"
+
+    secondary: "#0088ff"
+
+    secondaryLight: "#9999cc"
+
+    primaryLight: "#7ef19c"
+
+    gray: "#333333"
+
+    light: "#f6edd9"
+
+    lighter: "#f0fdf2"
+
+    bg: "#fff"
+  }
+  fonts: {
+    body: "Montserrat,Tahoma, Verdana, Segoe, sans-serif"
+    heading: "Nunito,Verdana, Geneva, sans-serif"
+  }
+  fontSizes: [
+    "0.7rem",
+    "1rem",
+    "1.4rem",
+    "1.9rem",
+    "2.8rem",
+    "3.9rem",
+    "5.6rem"
+  ]
+  fontWeights: {
+    normal: 400
+    medium: 500
+    bold: 700
+  }
+  lineHeights: {
+    body: 1.7
+    heading: 1.2
+  }
+  space: ["0.7rem", "1rem", "1.4rem", "1.9rem", "2.8rem", "3.9rem", "5.6rem"]
+  sizes: {
+    avatar: 48
+  }
+  radii: {
+    default: 4
+    circle: 99999
+  }
+  shadows: {
+    card: "0 0 4px rgba(0, 0, 0, .125)"
+  }
+  // rebass variants
+  text: {
+    heading: {
+      fontFamily: "heading"
+      lineHeight: "heading"
+      fontWeight: "heading"
+    }
+    display: {
+      fontFamily: "heading"
+      fontWeight: "heading"
+      lineHeight: "heading"
+      fontSize: [5, 6, 7]
+    }
+    caps: {
+      textTransform: "uppercase"
+      letterSpacing: "0.1em"
+    }
+  }
+  variants: {
+    avatar: {
+      width: "avatar"
+      height: "avatar"
+      borderRadius: "circle"
+    }
+    card: {
+      p: 2
+      bg: "background"
+      boxShadow: "card"
+    }
+    link: {
+      color: "primary"
+    }
+    nav: {
+      fontSize: 1
+      fontWeight: "bold"
+      display: "inline-block"
+      p: 2
+      color: "inherit"
+      textDecoration: "none"
+      ":hover,:focus,.active": {
+        color: "primary"
+      }
+    }
+  }
+  buttons: {
+    primary: {
+      fontSize: 2
+      fontWeight: "bold"
+      color: "bg"
+      bg: "primary"
+      borderRadius: "default"
+    }
+    outline: {
+      variant: "buttons.primary"
+      color: "primary"
+      bg: "transparent"
+      boxShadow: "inset 0 0 2px"
+    }
+    secondary: {
+      variant: "buttons.primary"
+      color: "background"
+      bg: "secondary"
+    }
+  }
+  styles: {
+    root: {
+      fontFamily: "body"
+      fontWeight: "body"
+      lineHeight: "body"
+    }
+  }
 }
