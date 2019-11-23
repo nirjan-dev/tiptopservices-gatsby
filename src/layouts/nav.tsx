@@ -3,6 +3,7 @@ import { IoIosInformationCircle, IoIosMail, IoIosList } from "react-icons/io"
 import { Image, Flex, Box } from "rebass"
 import styled from "../components/styled"
 import Logo from "../assets/images/tiptop2.png"
+import { Link } from "gatsby"
 const StyledNav = styled.nav`
   .nav-icon {
     width: 2rem;
@@ -16,7 +17,7 @@ const StyledNav = styled.nav`
     bottom: 0;
     left: 0;
     right: 0;
-
+    z-index: 1;
     background: ${props => props.theme.colors.bg};
   }
 
@@ -51,23 +52,23 @@ function Nav({ onOpenClick }) {
         alignItems="center"
       >
         <Box as="li">
-          <a href="#" className="nav-item active">
+          <Link to="/" className="nav-item active">
             <img className="nav-icon" src={Logo} alt="tiptop pest control" />
             <span>Home</span>
-          </a>
+          </Link>
         </Box>
         <Box>
-          <a href="#" className="nav-item">
+          <Link to="about" className="nav-item">
             <IoIosInformationCircle className="nav-icon" />
             <span>Why us?</span>
-          </a>
+          </Link>
         </Box>
         <Box as="li">
-          <a href="#" className="nav-item">
+          <Link to="services" className="nav-item">
             <IoIosList className="nav-icon" />
 
             <span>Services</span>
-          </a>
+          </Link>
         </Box>
         <Box as="li">
           <a

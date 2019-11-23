@@ -1,6 +1,6 @@
 import React from "react"
 import Stack from "stack-styled/emotion/Stack"
-import { Button } from "rebass"
+import Button from "./button"
 import Container from "./container"
 import { IoIosCall } from "react-icons/io"
 function ActionBtns({ onOpenClick }) {

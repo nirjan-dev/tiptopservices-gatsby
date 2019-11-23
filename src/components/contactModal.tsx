@@ -1,8 +1,8 @@
 import React, { Children } from "react"
 import ReactModal from "react-modal"
-import { Box, Button } from "rebass"
+import { Box } from "rebass"
+import Button from "./button"
 import { Label, Input, Textarea } from "@rebass/forms"
-import { IoIosClose } from "react-icons/io"
 import Stack from "stack-styled/emotion/Stack"
 function ContactModal({ isOpen, children, onCloseClick }) {
   ReactModal.setAppElement("#___gatsby")

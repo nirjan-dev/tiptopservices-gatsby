@@ -82,6 +82,15 @@ function GlobalLayout({ children }) {
           button svg {
             font-size: inherit;
           }
+
+          ul,
+          ol {
+            padding-left: ${customTheme.space[5]};
+          }
+
+          li {
+            margin-bottom: ${customTheme.space[2]};
+          }
         `}
       />
       <Nav onOpenClick={() => setIsOpen(true)} />
