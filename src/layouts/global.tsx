@@ -97,8 +97,6 @@ function GlobalLayout({ children }) {
 
       {children}
 
-      <ActionBtns onOpenClick={() => setIsOpen(true)} />
-
       <Footer />
 
       <ContactModal onCloseClick={() => setIsOpen(false)} isOpen={isOpen}>

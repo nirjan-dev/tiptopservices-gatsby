@@ -6,7 +6,7 @@ import { Flex, Box, Link } from "rebass"
 function Footer() {
   return (
     <footer style={{ marginBottom: "15vh" }}>
-      <Container pt={[2, 3, 4]} py={[2, 3, 4]}>
+      <Container py={1}>
         <Stack mt={2} justifyContent="center" gridGap={1}>
           <Flex
             fontSize={[3, 4, 5]}

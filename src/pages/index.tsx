@@ -2,32 +2,49 @@ import React from "react"
 
 import GlobalLayout from "../layouts/global"
 import Rellax from "../assets/images/rellax.svg"
-import { Image, Heading, Text } from "rebass"
+import { Image, Heading, Text, Box, Flex } from "rebass"
 import Stack from "stack-styled/emotion/Stack"
 import Container from "../components/container"
+import ActionBtns from "../components/actionBtns"
 
 export default () => {
   return (
     <GlobalLayout>
       <Container>
-        <Stack gridGap={3}>
-          <Image src={Rellax} alt="woman rellaxing in a house" />
-          <Heading fontSize={[3, 4, 5, 6]}>
-            Remember when you could relax in your own home without worrying
-            about pests?
-          </Heading>
+        <Flex
+          sx={{
+            flexWrap: ["wrap", "wrap", "nowrap"],
+          }}
+        >
+          <Box order={[0, 0, 1]} width={1}>
+            <Image
+              src={Rellax}
+              mx={5}
+              my={2}
+              alt="woman rellaxing in a house"
+            />
+          </Box>
 
-          <Stack gridGap={1}>
-            <Text>
-              Let our team of trained professionals help you go back to that
-              time.
-            </Text>
-            <Text>
-              Take back your home with Tiptop pest control.
-              <Text as="strong">Before it’s too Late</Text>.
-            </Text>
-          </Stack>
-        </Stack>
+          <Box width={[1, 1, 0.8]}>
+            <Heading fontSize={[3, 3, 4]}>
+              Remember when you could relax in your own home without worrying
+              about pests?
+            </Heading>
+
+            <Box my={[2, 2, 6]}>
+              <Text>
+                Let our team of trained professionals help you go back to that
+                time.
+              </Text>
+              <Text>
+                Take back your home with Tiptop pest control.
+                <br />
+                <Text as="strong">Before it’s too Late</Text>.
+              </Text>
+            </Box>
+            <ActionBtns onOpenClick={() => console.log("clicked")} />
+          </Box>
+        </Flex>
       </Container>
     </GlobalLayout>
   )

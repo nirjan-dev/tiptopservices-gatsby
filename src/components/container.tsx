@@ -6,7 +6,7 @@ function Container(props) {
     <Box
       {...props}
       sx={{
-        maxWidth: 512,
+        maxWidth: ["100%", "95%", "95%", "92%"],
         mx: "auto",
         px: 3,
       }}

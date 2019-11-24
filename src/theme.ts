@@ -1,5 +1,5 @@
 export const customTheme = {
-  breakpoints: ["40em", "52em", "64em", "80em"],
+  breakpoints: ["40em", "60em", "75em", "100em"],
   colors: {
     primary: "#009245",
 

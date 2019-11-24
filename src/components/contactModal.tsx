@@ -10,7 +10,10 @@ function ContactModal({ isOpen, children, onCloseClick }) {
     <ReactModal
       isOpen={isOpen}
       style={{
-        overlay: {},
+        overlay: {
+          zIndex: "2",
+          background: "rgba(0,0,0,0.75)",
+        },
         content: {
           paddingTop: "3.5rem",
           top: "0px",
@@ -18,6 +21,8 @@ function ContactModal({ isOpen, children, onCloseClick }) {
           bottom: "0px",
           right: "0px",
           border: "none",
+          maxWidth: "65ch",
+          margin: "0 auto",
         },
       }}
     >
@@ -41,7 +46,7 @@ function ContactModal({ isOpen, children, onCloseClick }) {
             <Label htmlFor="address">Address</Label>
             <Textarea id="address" name="address" />
           </Box>
-          <Stack gridGap={1}>
+          <Stack gridGap={1} minColumnWidth="10rem">
             <Button variant="primary">Get a free quote</Button>
 
             <Button variant="outline" onClick={() => onCloseClick()}>

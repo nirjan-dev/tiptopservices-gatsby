@@ -12,8 +12,6 @@ const StyledNav = styled.nav`
 
   .nav {
     list-style-type: none;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -42,48 +40,106 @@ const StyledNav = styled.nav`
 function Nav({ onOpenClick }) {
   return (
     <StyledNav role="navigation">
-      <Image display={["none", "block"]} src={Logo} />
-
       <Flex
-        className="nav"
-        as="ul"
-        padding="3"
         justifyContent="space-between"
         alignItems="center"
+        p={[0, 0, 3]}
+        sx={{
+          maxWidth: ["100%", "100%", "92%"],
+          margin: "0 auto",
+        }}
       >
-        <Box as="li">
-          <Link to="/" className="nav-item active">
-            <img className="nav-icon" src={Logo} alt="tiptop pest control" />
-            <span>Home</span>
-          </Link>
-        </Box>
-        <Box>
-          <Link to="about" className="nav-item">
-            <IoIosInformationCircle className="nav-icon" />
-            <span>Why us?</span>
-          </Link>
-        </Box>
-        <Box as="li">
-          <Link to="services" className="nav-item">
-            <IoIosList className="nav-icon" />
-
-            <span>Services</span>
-          </Link>
-        </Box>
-        <Box as="li">
-          <a
-            href="#"
-            onClick={e => {
-              e.preventDefault()
-              onOpenClick()
+        <Box
+          sx={{
+            display: ["none", "none", "block"],
+          }}
+        >
+          <Image
+            src={Logo}
+            sx={{
+              maxWidth: "4.8rem",
+              height: "auto",
             }}
-            className="nav-item"
-          >
-            <IoIosMail className="nav-icon" />
-
-            <span>Contact</span>
-          </a>
+          />
         </Box>
+
+        <Flex
+          flex="0.6"
+          className="nav"
+          as="ul"
+          padding="3"
+          justifyContent="space-between"
+          alignItems="center"
+          sx={{
+            position: ["fixed", "fixed", "static"],
+            boxShadow: [
+              "0px -4px 10px rgba(0, 0, 0, 0.1)",
+              "0px -4px 10px rgba(0, 0, 0, 0.1)",
+              "none",
+            ],
+          }}
+        >
+          <Box as="li">
+            <Link to="/" className="nav-item active">
+              <Image
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                img
+                className="nav-icon"
+                src={Logo}
+                alt="tiptop pest control"
+              />
+
+              <span>Home</span>
+            </Link>
+          </Box>
+          <Box>
+            <Link to="about" className="nav-item">
+              <Box
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                as={IoIosInformationCircle}
+                className="nav-icon"
+              />
+              <span>Why us?</span>
+            </Link>
+          </Box>
+          <Box as="li">
+            <Link to="services" className="nav-item">
+              <Box
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                as={IoIosList}
+                className="nav-icon"
+              />
+
+              <span>Services</span>
+            </Link>
+          </Box>
+          <Box as="li">
+            <a
+              href="#"
+              onClick={e => {
+                e.preventDefault()
+                onOpenClick()
+              }}
+              className="nav-item"
+            >
+              <Box
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                as={IoIosMail}
+                className="nav-icon"
+              />
+
+              <span>Contact</span>
+            </a>
+          </Box>
+        </Flex>
       </Flex>
     </StyledNav>
   )
