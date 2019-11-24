@@ -15,7 +15,12 @@ function ActionBtns({ onOpenClick }) {
           Get a free quote
         </Button>
 
-        <Button variant="outline" fontSize={[1, 2, 3]}>
+        <Button
+          as="a"
+          href="tel:61 425 006 900"
+          variant="outline"
+          fontSize={[1, 2, 3]}
+        >
           <IoIosCall /> 61 425 006 900
         </Button>
       </Stack>
