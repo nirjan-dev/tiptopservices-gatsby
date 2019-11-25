@@ -1,12 +1,13 @@
 import React from "react"
 import Stack from "stack-styled/emotion/Stack"
 import Button from "./button"
-import Container from "./container"
 import { IoIosCall } from "react-icons/io"
-function ActionBtns({ onOpenClick }) {
+import { useGlobal } from "../state/state"
+function ActionBtns() {
+  const [{ isContactOpen }, globalActions] = useGlobal()
   return (
-    <Stack gridGap={1} mt={2} minColumnWidth={"10rem"}>
-      <Button variant="primary" onClick={() => onOpenClick()}>
+    <Stack gridGap={1} mt={2} minColumnWidth={"12rem"}>
+      <Button variant="primary" onClick={() => globalActions.openModal()}>
         Get a free quote
       </Button>
 

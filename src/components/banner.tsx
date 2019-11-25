@@ -7,9 +7,9 @@ function Banner({ bg, header }) {
       sx={{
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",
-        backgroundPosition: "top center",
+        backgroundPosition: "center center",
         position: "relative",
-        height: "40vh",
+        height: ["40vh", "50vh"],
       }}
     >
       <Box

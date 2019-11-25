@@ -27,7 +27,8 @@
     "react-slick": "^0.25.2",
     "rebass": "^4.0.7",
     "slick-carousel": "^1.8.1",
-    "stack-styled": "^3.0.0"
+    "stack-styled": "^3.0.0",
+    "use-global-hook": "^0.1.12"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

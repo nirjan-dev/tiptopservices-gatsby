@@ -42,7 +42,7 @@ export default () => {
                 <Text as="strong">Before it’s too Late</Text>.
               </Text>
             </Box>
-            <ActionBtns onOpenClick={() => console.log("clicked")} />
+            <ActionBtns />
           </Box>
         </Flex>
       </Container>

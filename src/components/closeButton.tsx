@@ -16,6 +16,7 @@ function CloseButton(props) {
         right: "0rem",
         top: "0rem",
         background: "transparent",
+        cursor: "pointer",
       }}
     >
       <IoIosClose style={{ fontSize: "4rem" }} />

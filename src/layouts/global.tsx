@@ -1,16 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 import { ThemeProvider } from "emotion-theming"
 import { customTheme } from "../theme"
 import Nav from "./nav"
-
 import { Global, css } from "@emotion/core"
 import ContactModal from "../components/contactModal"
 import CloseButton from "../components/closeButton"
-import ActionBtns from "../components/actionBtns"
 import Footer from "./footer"
+import { useGlobal } from "../state/state"
 
 function GlobalLayout({ children }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [{ isContactOpen }, globalActions] = useGlobal()
   return (
     <ThemeProvider theme={customTheme}>
       <Global
@@ -93,14 +92,17 @@ function GlobalLayout({ children }) {
           }
         `}
       />
-      <Nav onOpenClick={() => setIsOpen(true)} />
+      <Nav onOpenClick={() => globalActions.openModal()} />
 
       {children}
 
       <Footer />
 
-      <ContactModal onCloseClick={() => setIsOpen(false)} isOpen={isOpen}>
-        <CloseButton onClick={() => setIsOpen(false)} />
+      <ContactModal
+        onCloseClick={() => globalActions.closeModal()}
+        isOpen={isContactOpen}
+      >
+        <CloseButton onClick={() => globalActions.closeModal()} />
       </ContactModal>
     </ThemeProvider>
   )

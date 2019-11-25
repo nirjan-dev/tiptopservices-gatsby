@@ -3,8 +3,8 @@ import { Button as ReButton } from "rebass"
 function Button(props) {
   return (
     <ReButton
-      py={[0, 1]}
-      px={[0, 1, 2]}
+      py={[1, 2]}
+      px={[1, 2]}
       sx={{
         cursor: "pointer",
         opacity: "0.82",
@@ -13,7 +13,7 @@ function Button(props) {
         ":hover,:active,:focus": {
           opacity: 1,
         },
-        fontSize: [0, 1],
+        fontSize: 1,
       }}
       {...props}
     >

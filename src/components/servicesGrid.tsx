@@ -5,8 +5,10 @@ function ServicesGrid({ services }) {
     <Flex flexWrap="wrap">
       {services.map(service => {
         return (
-          <Box my={2} width={1 / 2} px={2}>
+          <Box my={2} width={[1 / 2, 1 / 2, 1 / 3, 1 / 4]} px={2}>
             <Box
+              as={Link}
+              href={service.link}
               sx={{
                 background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 45%),url(${service.image})`,
                 backgroundSize: "cover",
@@ -14,21 +16,21 @@ function ServicesGrid({ services }) {
                 color: "white",
                 height: "20vh",
                 position: "relative",
+                display: "block",
               }}
             >
-              <Link
-                href={service.link}
+              <Box
+                as="span"
                 textAlign="center"
                 sx={{
                   position: "absolute",
                   bottom: "2",
                   left: "2",
                   color: "light",
-                  textDecoration: "none",
                 }}
               >
                 {service.title}
-              </Link>
+              </Box>
             </Box>
           </Box>
         )

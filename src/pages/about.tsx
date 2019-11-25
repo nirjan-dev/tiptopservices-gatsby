@@ -30,7 +30,7 @@ export default () => {
     <GlobalLayout>
       <Banner bg={exterminator} header={<Heading>About us</Heading>} />
       <Container my={2}>
-        <Stack gridGap={2}>
+        <Stack gridGap={2} maxWidth="80ch" py={[2, 3, 4]}>
           <Text>
             We are a pest control company based in Melbourne, Australia. We have
             been providing as the name suggests tip top service for our
