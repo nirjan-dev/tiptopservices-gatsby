@@ -72,11 +72,7 @@ function Nav({ onOpenClick }) {
           alignItems="center"
           sx={{
             position: ["fixed", "fixed", "static"],
-            boxShadow: [
-              "0px -4px 10px rgba(0, 0, 0, 0.1)",
-              "0px -4px 10px rgba(0, 0, 0, 0.1)",
-              "none",
-            ],
+            boxShadow: ["nav", "nav", "none"],
           }}
         >
           <Box as="li">

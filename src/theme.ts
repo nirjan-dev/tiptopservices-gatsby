@@ -58,7 +58,9 @@ export const customTheme = {
     circle: 99999,
   },
   shadows: {
-    card: "0 0 4px rgba(0, 0, 0, .125)",
+    nav: "0px -4px 10px rgba(0, 0, 0, 0.1)",
+    card:
+      "0px 1px 2px -1px rgba(0,0,0,0.02), 0px 2px 4px -2px rgba(0,0,0,0.08), 0px 4px 8px -4px rgba(0,0,0,0.10),0px 8px 16px -8px rgba(0,0,0,0.12)",
   },
   // rebass variants
   text: {

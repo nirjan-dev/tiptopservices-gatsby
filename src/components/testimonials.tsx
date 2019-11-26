@@ -9,11 +9,33 @@ function Testimonials({ testimonials }) {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
-    //centerPadding: "3rem",
-    //centerMode: true,
+    slidesToShow: 3,
     adaptiveHeight: true,
-    //variableWidth: true,
+    swipeToSlide: true,
+    draggable: true,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          centerMode: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          centerMode: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   }
   return (
     <Box
@@ -38,6 +60,7 @@ function Testimonials({ testimonials }) {
                   boxShadow: "card",
                   borderRadius: "default",
                   backgroundColor: "bg",
+                  cursor: "grab",
                 }}
               >
                 <Stack

@@ -15,6 +15,12 @@ function GlobalLayout({ children }) {
       <Global
         styles={css`
           @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Nunito&display=swap");
+
+          *,
+          *::after,
+          *::before {
+            box-sizing: border-box;
+          }
           body {
             font-family: ${customTheme.fonts.body};
             line-height: ${customTheme.lineHeights.body};

@@ -16,13 +16,8 @@ export default () => {
             flexWrap: ["wrap", "wrap", "nowrap"],
           }}
         >
-          <Box order={[0, 0, 1]} width={1}>
-            <Image
-              src={Rellax}
-              mx={5}
-              my={2}
-              alt="woman rellaxing in a house"
-            />
+          <Box my={5} mx={2} order={[0, 0, 1]} width={1}>
+            <Image src={Rellax} alt="woman rellaxing in a house" />
           </Box>
 
           <Box width={[1, 1, 0.8]}>

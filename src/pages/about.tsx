@@ -25,6 +25,21 @@ export default () => {
       name: "Jonny Ive",
       location: "Moonee Ponds",
     },
+    {
+      quote: "They have a friendly team and arrived in time",
+      name: "Jonny Ive",
+      location: "Moonee Ponds",
+    },
+    {
+      quote: "They have a friendly team and arrived in time",
+      name: "Jonny Ive",
+      location: "Moonee Ponds",
+    },
+    {
+      quote: "They have a friendly team and arrived in time",
+      name: "Jonny Ive",
+      location: "Moonee Ponds",
+    },
   ]
   return (
     <GlobalLayout>
@@ -47,8 +62,8 @@ export default () => {
       </Container>
       <Box bg="lighter" py="3">
         <Container>
-          <Heading as="h3" fontSize={[2, 3, 4]}>
-            Don’t just take our word for it. Hear from our customers.
+          <Heading as="h3" fontSize={[2, 3, 3]}>
+            Don’t just take our word for it, <br /> Hear from our customers.
           </Heading>
 
           <Testimonials testimonials={testimonials} />
