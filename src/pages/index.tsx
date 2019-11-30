@@ -3,7 +3,6 @@ import React from "react"
 import GlobalLayout from "../layouts/global"
 import Rellax from "../assets/images/rellax.svg"
 import { Image, Heading, Text, Box, Flex } from "rebass"
-import Stack from "stack-styled/emotion/Stack"
 import Container from "../components/container"
 import ActionBtns from "../components/actionBtns"
 

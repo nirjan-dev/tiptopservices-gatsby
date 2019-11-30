@@ -1,5 +1,4 @@
 import React from "react"
-import Stack from "stack-styled/emotion/Stack"
 import Container from "../components/container"
 import { IoLogoFacebook, IoLogoTwitter, IoLogoInstagram } from "react-icons/io"
 import { Flex, Box, Link } from "rebass"
@@ -7,7 +6,14 @@ function Footer() {
   return (
     <footer style={{ marginBottom: "15vh" }}>
       <Container py={1}>
-        <Stack mt={2} justifyContent="center" gridGap={1}>
+        <Box
+          sx={{
+            display: "grid",
+            gridGap: "1",
+          }}
+          mt={2}
+          justifyContent="center"
+        >
           <Flex
             fontSize={[3, 4, 5]}
             justifyContent="center"
@@ -43,7 +49,7 @@ function Footer() {
               Studiodagger
             </Link>
           </small>
-        </Stack>
+        </Box>
       </Container>
     </footer>
   )

@@ -4,6 +4,9 @@ import { Image, Flex, Box } from "rebass"
 import styled from "../components/styled"
 import Logo from "../assets/images/tiptop2.png"
 import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { useTheme } from "emotion-theming"
+import { customThemeType } from "../theme"
 const StyledNav = styled.nav`
   .nav-icon {
     width: 2rem;
@@ -38,6 +41,7 @@ const StyledNav = styled.nav`
 `
 
 function Nav({ onOpenClick }) {
+  const theme: customThemeType = useTheme()
   return (
     <StyledNav role="navigation">
       <Flex
@@ -76,7 +80,13 @@ function Nav({ onOpenClick }) {
           }}
         >
           <Box as="li">
-            <Link to="/" className="nav-item active">
+            <AniLink
+              activeClassName="active"
+              hex={theme.colors.primaryLight}
+              paintDrip
+              to="/"
+              className="nav-item"
+            >
               <Image
                 sx={{
                   display: ["block", "block", "none"],
@@ -88,10 +98,16 @@ function Nav({ onOpenClick }) {
               />
 
               <span>Home</span>
-            </Link>
+            </AniLink>
           </Box>
           <Box>
-            <Link to="about" className="nav-item">
+            <AniLink
+              activeClassName="active"
+              hex={theme.colors.primaryLight}
+              paintDrip
+              to="about"
+              className="nav-item"
+            >
               <Box
                 sx={{
                   display: ["block", "block", "none"],
@@ -100,10 +116,16 @@ function Nav({ onOpenClick }) {
                 className="nav-icon"
               />
               <span>Why us?</span>
-            </Link>
+            </AniLink>
           </Box>
           <Box as="li">
-            <Link to="services" className="nav-item">
+            <AniLink
+              activeClassName="active"
+              hex={theme.colors.primaryLight}
+              paintDrip
+              to="services"
+              className="nav-item"
+            >
               <Box
                 sx={{
                   display: ["block", "block", "none"],
@@ -113,10 +135,11 @@ function Nav({ onOpenClick }) {
               />
 
               <span>Services</span>
-            </Link>
+            </AniLink>
           </Box>
           <Box as="li">
             <a
+              role="button"
               href="#"
               onClick={e => {
                 e.preventDefault()

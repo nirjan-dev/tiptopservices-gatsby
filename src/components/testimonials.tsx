@@ -1,6 +1,5 @@
 import React from "react"
 import { Box, Text } from "rebass"
-import Stack from "stack-styled/emotion/Stack"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
@@ -63,8 +62,11 @@ function Testimonials({ testimonials }) {
                   cursor: "grab",
                 }}
               >
-                <Stack
-                  gridGap={2}
+                <Box
+                  sx={{
+                    display: "grid",
+                    gridGap: "2",
+                  }}
                   textAlign="center"
                   justifyContent="center"
                   as="article"
@@ -74,7 +76,7 @@ function Testimonials({ testimonials }) {
                     {testimonial.name}
                   </Text>
                   <Text as="small">{testimonial.location}</Text>
-                </Stack>
+                </Box>
               </Box>
             </Box>
           )

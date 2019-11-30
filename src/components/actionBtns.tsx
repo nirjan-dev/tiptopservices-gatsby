@@ -1,12 +1,18 @@
 import React from "react"
-import Stack from "stack-styled/emotion/Stack"
 import Button from "./button"
+import { Box } from "rebass"
 import { IoIosCall } from "react-icons/io"
 import { useGlobal } from "../state/state"
 function ActionBtns() {
   const [{ isContactOpen }, globalActions] = useGlobal()
   return (
-    <Stack gridGap={1} mt={2} minColumnWidth={"12rem"}>
+    <Box
+      sx={{
+        display: "grid",
+        gridGap: "2",
+      }}
+      mt={2}
+    >
       <Button variant="primary" onClick={() => globalActions.openModal()}>
         Get a free quote
       </Button>
@@ -14,7 +20,7 @@ function ActionBtns() {
       <Button as="a" href="tel:61 425 006 900" variant="outline">
         <IoIosCall /> 61 425 006 900
       </Button>
-    </Stack>
+    </Box>
   )
 }
 

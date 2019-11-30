@@ -1,10 +1,6 @@
 import React from "react"
-
 import GlobalLayout from "../layouts/global"
-import Banner from "../components/banner"
-import exterminator from "../assets/images/exterminator.jpg"
-import { Heading, Text } from "rebass"
-import Stack from "stack-styled/emotion/Stack"
+import { Heading } from "rebass"
 import Container from "../components/container"
 import ServicesGrid from "../components/servicesGrid"
 import Millipede from "../assets/images/millipede.jpg"

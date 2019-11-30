@@ -4,7 +4,6 @@ import GlobalLayout from "../layouts/global"
 import Banner from "../components/banner"
 import exterminator from "../assets/images/exterminator.jpg"
 import { Heading, Text, Box } from "rebass"
-import Stack from "stack-styled/emotion/Stack"
 import Container from "../components/container"
 import Testimonials from "../components/testimonials"
 export default () => {
@@ -45,7 +44,11 @@ export default () => {
     <GlobalLayout>
       <Banner bg={exterminator} header={<Heading>About us</Heading>} />
       <Container my={2}>
-        <Stack gridGap={2} maxWidth="80ch" py={[2, 3, 4]}>
+        <Box
+          sx={{ display: "grid", gridGap: "2" }}
+          maxWidth="80ch"
+          py={[2, 3, 4]}
+        >
           <Text>
             We are a pest control company based in Melbourne, Australia. We have
             been providing as the name suggests tip top service for our
@@ -58,7 +61,7 @@ export default () => {
               <li>Customer satisfaction guarenteed</li>
             </ol>
           </Text>
-        </Stack>
+        </Box>
       </Container>
       <Box bg="lighter" py="3">
         <Container>

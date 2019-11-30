@@ -7,6 +7,7 @@ import ContactModal from "../components/contactModal"
 import CloseButton from "../components/closeButton"
 import Footer from "./footer"
 import { useGlobal } from "../state/state"
+import { Box } from "rebass"
 
 function GlobalLayout({ children }) {
   const [{ isContactOpen }, globalActions] = useGlobal()
@@ -98,11 +99,17 @@ function GlobalLayout({ children }) {
           }
         `}
       />
-      <Nav onOpenClick={() => globalActions.openModal()} />
+      <Box
+        sx={{
+          minHeight: "100vh",
+        }}
+      >
+        <Nav onOpenClick={() => globalActions.openModal()} />
 
-      {children}
+        {children}
 
-      <Footer />
+        <Footer />
+      </Box>
 
       <ContactModal
         onCloseClick={() => globalActions.closeModal()}

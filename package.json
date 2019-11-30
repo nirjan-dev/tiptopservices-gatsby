@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "tiptop-services-site",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Tiptop Services website made by Studiodagger",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -16,18 +16,19 @@
     "@rebass/forms": "^4.0.6",
     "@rebass/preset": "^4.0.5",
     "emotion-theming": "^10.0.19",
-    "gatsby": "^2.17.6",
+    "gatsby": "^2.18.5",
     "gatsby-image": "^2.2.30",
+    "gatsby-plugin-transition-link": "^1.16.2",
     "gatsby-plugin-typescript": "^2.1.15",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
+    "gsap": "^3.0.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-icons": "^3.8.0",
     "react-modal": "^3.11.1",
     "react-responsive-carousel": "^3.1.51",
     "react-slick": "^0.25.2",
     "rebass": "^4.0.7",
     "slick-carousel": "^1.8.1",
-    "stack-styled": "^3.0.0",
     "use-global-hook": "^0.1.12"
   },
   "devDependencies": {

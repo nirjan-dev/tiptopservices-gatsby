@@ -3,7 +3,6 @@ import ReactModal from "react-modal"
 import { Box } from "rebass"
 import Button from "./button"
 import { Label, Input, Textarea } from "@rebass/forms"
-import Stack from "stack-styled/emotion/Stack"
 function ContactModal({ isOpen, children, onCloseClick }) {
   ReactModal.setAppElement("#___gatsby")
   return (
@@ -11,7 +10,7 @@ function ContactModal({ isOpen, children, onCloseClick }) {
       isOpen={isOpen}
       style={{
         overlay: {
-          zIndex: "2",
+          zIndex: "1200",
           background: "rgba(0,0,0,0.75)",
         },
         content: {
@@ -21,15 +20,19 @@ function ContactModal({ isOpen, children, onCloseClick }) {
           bottom: "0px",
           right: "0px",
           border: "none",
-          maxWidth: "65ch",
-          margin: "0 auto",
         },
       }}
     >
       {children}
 
-      <Box as="form">
-        <Stack gridGap={3}>
+      <Box
+        as="form"
+        sx={{
+          maxWidth: "65ch",
+          margin: "0 auto",
+        }}
+      >
+        <Box sx={{ display: "grid", gridGap: 3 }}>
           <Box>
             <Label htmlFor="name">Name</Label>
             <Input id="name" name="name" />
@@ -46,14 +49,20 @@ function ContactModal({ isOpen, children, onCloseClick }) {
             <Label htmlFor="address">Address</Label>
             <Textarea id="address" name="address" />
           </Box>
-          <Stack gridGap={1} minColumnWidth="10rem">
+          <Box
+            sx={{
+              display: "grid",
+              gridGap: "1",
+              gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))",
+            }}
+          >
             <Button variant="primary">Get a free quote</Button>
 
             <Button variant="outline" onClick={() => onCloseClick()}>
               Cancel
             </Button>
-          </Stack>
-        </Stack>
+          </Box>
+        </Box>
       </Box>
     </ReactModal>
   )
