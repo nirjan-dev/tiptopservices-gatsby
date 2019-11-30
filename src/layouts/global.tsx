@@ -15,7 +15,7 @@ function GlobalLayout({ children }) {
     <ThemeProvider theme={customTheme}>
       <Global
         styles={css`
-          @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Nunito&display=swap");
+          @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Lora&display=swap");
 
           *,
           *::after,
@@ -101,7 +101,7 @@ function GlobalLayout({ children }) {
       />
       <Box
         sx={{
-          minHeight: "100vh",
+          minHeight: "110vh",
         }}
       >
         <Nav onOpenClick={() => globalActions.openModal()} />

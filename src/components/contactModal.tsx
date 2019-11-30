@@ -32,7 +32,7 @@ function ContactModal({ isOpen, children, onCloseClick }) {
           margin: "0 auto",
         }}
       >
-        <Box sx={{ display: "grid", gridGap: 3 }}>
+        <Box sx={{ display: "grid", gridGap: 4 }}>
           <Box>
             <Label htmlFor="name">Name</Label>
             <Input id="name" name="name" />

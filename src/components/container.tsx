@@ -9,6 +9,7 @@ function Container(props) {
         maxWidth: ["100%", "95%", "95%", "92%"],
         mx: "auto",
         px: 3,
+        ...props.sx,
       }}
     >
       {props.children}

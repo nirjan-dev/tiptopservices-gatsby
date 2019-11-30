@@ -10,6 +10,7 @@ function ActionBtns() {
       sx={{
         display: "grid",
         gridGap: "2",
+        gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))",
       }}
       mt={2}
     >

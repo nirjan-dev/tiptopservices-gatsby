@@ -5,7 +5,14 @@ function ServicesGrid({ services }) {
     <Flex flexWrap="wrap">
       {services.map(service => {
         return (
-          <Box my={2} width={[1 / 2, 1 / 2, 1 / 3, 1 / 4]} px={2}>
+          <Box
+            my={2}
+            width={[1 / 2, 1 / 2, 1 / 3, 1 / 4]}
+            px={[2, 3, 4]}
+            sx={{
+              overflow: "hidden",
+            }}
+          >
             <Box
               as={Link}
               href={service.link}
@@ -17,6 +24,15 @@ function ServicesGrid({ services }) {
                 height: "20vh",
                 position: "relative",
                 display: "block",
+                transition: "transform 200ms ease-in",
+                boxShadow: "card",
+                ":hover,:active": {
+                  transform: "scale(1.12)",
+                },
+                ":focus": {
+                  border: "3px solid",
+                  borderColor: "primary",
+                },
               }}
             >
               <Box

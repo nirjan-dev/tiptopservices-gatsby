@@ -9,13 +9,13 @@ import ActionBtns from "../components/actionBtns"
 export default () => {
   return (
     <GlobalLayout>
-      <Container>
+      <Container my={[1, 2, 4]}>
         <Flex
           sx={{
             flexWrap: ["wrap", "wrap", "nowrap"],
           }}
         >
-          <Box my={5} mx={2} order={[0, 0, 1]} width={1}>
+          <Box my={2} mx={3} order={[0, 0, 1]} width={1}>
             <Image src={Rellax} alt="woman rellaxing in a house" />
           </Box>
 
@@ -25,7 +25,7 @@ export default () => {
               about pests?
             </Heading>
 
-            <Box my={[2, 2, 6]}>
+            <Box my={[4, 5, 6]}>
               <Text>
                 Let our team of trained professionals help you go back to that
                 time.

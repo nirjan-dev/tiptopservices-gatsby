@@ -3,8 +3,8 @@ import { Button as ReButton } from "rebass"
 function Button(props) {
   return (
     <ReButton
+      px={[0, 1]}
       py={[1, 2]}
-      px={[1, 2]}
       sx={{
         cursor: "pointer",
         opacity: "0.82",

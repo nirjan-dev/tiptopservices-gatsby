@@ -1,28 +1,36 @@
 import React from "react"
 import { Box } from "rebass"
+import Container from "./container"
 function Banner({ bg, header }) {
   return (
     <Box
       as="section"
       sx={{
         backgroundImage: `url(${bg})`,
+        backgroundColor: "primary",
+        backgroundBlendMode: "multiply",
         backgroundSize: "cover",
         backgroundPosition: "center center",
-        position: "relative",
+
         height: ["40vh", "50vh"],
       }}
     >
-      <Box
-        bg="light"
+      <Container
         sx={{
-          position: "absolute",
-          left: "3",
-          bottom: "3",
-          padding: [2, 3, 4],
+          position: "relative",
+          height: "100%",
         }}
       >
-        {header}
-      </Box>
+        <Box
+          color="bg"
+          sx={{
+            position: "absolute",
+            bottom: [4, 5, 6],
+          }}
+        >
+          {header}
+        </Box>
+      </Container>
     </Box>
   )
 }

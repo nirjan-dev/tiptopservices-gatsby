@@ -8,24 +8,34 @@ function Testimonials({ testimonials }) {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 5,
     adaptiveHeight: true,
     swipeToSlide: true,
     draggable: true,
-    centerMode: true,
+
     responsive: [
+      {
+        breakpoint: 1680,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 1366,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          centerMode: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          centerMode: false,
         },
       },
       {
@@ -40,8 +50,8 @@ function Testimonials({ testimonials }) {
     <Box
       as="section"
       sx={{
-        my: "3",
-        pb: "5",
+        my: [3, 4, 5],
+        pb: "3",
       }}
     >
       <Slider {...settings}>
@@ -49,15 +59,16 @@ function Testimonials({ testimonials }) {
           return (
             <Box
               sx={{
-                p: "1",
+                p: "3",
+                mb: "5",
               }}
             >
               <Box
-                py="2"
-                px="3"
+                py="4"
+                px="5"
                 sx={{
                   boxShadow: "card",
-                  borderRadius: "default",
+                  borderRadius: "card",
                   backgroundColor: "bg",
                   cursor: "grab",
                 }}

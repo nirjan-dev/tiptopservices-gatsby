@@ -6,6 +6,7 @@ import exterminator from "../assets/images/exterminator.jpg"
 import { Heading, Text, Box } from "rebass"
 import Container from "../components/container"
 import Testimonials from "../components/testimonials"
+import ActionBtns from "../components/actionBtns"
 export default () => {
   const testimonials = [
     {
@@ -43,10 +44,10 @@ export default () => {
   return (
     <GlobalLayout>
       <Banner bg={exterminator} header={<Heading>About us</Heading>} />
-      <Container my={2}>
+      <Container my={[3, 4, 5]}>
         <Box
           sx={{ display: "grid", gridGap: "2" }}
-          maxWidth="80ch"
+          maxWidth="69ch"
           py={[2, 3, 4]}
         >
           <Text>
@@ -61,12 +62,13 @@ export default () => {
               <li>Customer satisfaction guarenteed</li>
             </ol>
           </Text>
+          <ActionBtns />
         </Box>
       </Container>
-      <Box bg="lighter" py="3">
+      <Box bg="lighter" py={[4, 5, 6]} my={[1, 2, 3]}>
         <Container>
           <Heading as="h3" fontSize={[2, 3, 3]}>
-            Don’t just take our word for it, <br /> Hear from our customers.
+            Hear from our customers
           </Heading>
 
           <Testimonials testimonials={testimonials} />
