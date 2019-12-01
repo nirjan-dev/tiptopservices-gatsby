@@ -15,11 +15,16 @@
   "dependencies": {
     "@rebass/forms": "^4.0.6",
     "@rebass/preset": "^4.0.5",
+    "@sanity/block-content-to-react": "^2.0.7",
     "emotion-theming": "^10.0.19",
     "gatsby": "^2.18.5",
-    "gatsby-image": "^2.2.30",
+    "gatsby-background-image": "^0.9.10",
+    "gatsby-image": "^2.2.34",
+    "gatsby-plugin-sharp": "^2.3.4",
     "gatsby-plugin-transition-link": "^1.16.2",
     "gatsby-plugin-typescript": "^2.1.15",
+    "gatsby-source-sanity": "^5.0.4",
+    "gatsby-transformer-sharp": "^2.3.6",
     "gsap": "^3.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -32,6 +37,7 @@
     "use-global-hook": "^0.1.12"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "prettier": "^1.18.2"
   },
   "repository": {

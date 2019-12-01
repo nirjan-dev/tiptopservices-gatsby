@@ -1,13 +1,8 @@
 import React from "react"
 import { ThemeProvider } from "emotion-theming"
 import { customTheme } from "../theme"
-import Nav from "./nav"
 import { Global, css } from "@emotion/core"
-import ContactModal from "../components/contactModal"
-import CloseButton from "../components/closeButton"
-import Footer from "./footer"
 import { useGlobal } from "../state/state"
-import { Box } from "rebass"
 
 function GlobalLayout({ children }) {
   const [{ isContactOpen }, globalActions] = useGlobal()
@@ -99,24 +94,7 @@ function GlobalLayout({ children }) {
           }
         `}
       />
-      <Box
-        sx={{
-          minHeight: "110vh",
-        }}
-      >
-        <Nav onOpenClick={() => globalActions.openModal()} />
-
-        {children}
-
-        <Footer />
-      </Box>
-
-      <ContactModal
-        onCloseClick={() => globalActions.closeModal()}
-        isOpen={isContactOpen}
-      >
-        <CloseButton onClick={() => globalActions.closeModal()} />
-      </ContactModal>
+      {children}
     </ThemeProvider>
   )
 }

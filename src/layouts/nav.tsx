@@ -19,7 +19,7 @@ const StyledNav = styled.nav`
     left: 0;
     right: 0;
     z-index: 1;
-    background: ${props => props.theme.colors.bg};
+    background: ${props => props.theme["colors"].bg};
   }
 
   .nav-item {
@@ -28,14 +28,14 @@ const StyledNav = styled.nav`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: ${props => props.theme.colors.gray};
+    color: ${props => props.theme["colors"].gray};
     text-decoration: none;
     font-family: ${props => props.theme.fonts.heading};
 
     &.active,
     &:hover,
     &:active {
-      color: ${props => props.theme.colors.primary};
+      color: ${props => props.theme["colors"].primary};
     }
   }
 `
@@ -82,9 +82,9 @@ function Nav({ onOpenClick }) {
           <Box as="li">
             <AniLink
               activeClassName="active"
-              hex={theme.colors.primaryLight}
+              hex={theme["colors"].primaryLight}
               paintDrip
-              to="/"
+              to="/pestcontrol"
               className="nav-item"
             >
               <Image
@@ -103,9 +103,9 @@ function Nav({ onOpenClick }) {
           <Box>
             <AniLink
               activeClassName="active"
-              hex={theme.colors.primaryLight}
+              hex={theme["colors"].primaryLight}
               paintDrip
-              to="about"
+              to="/pestcontrol/about"
               className="nav-item"
             >
               <Box
@@ -121,9 +121,9 @@ function Nav({ onOpenClick }) {
           <Box as="li">
             <AniLink
               activeClassName="active"
-              hex={theme.colors.primaryLight}
+              hex={theme["colors"].primaryLight}
               paintDrip
-              to="services"
+              to="/pestcontrol/services"
               className="nav-item"
             >
               <Box

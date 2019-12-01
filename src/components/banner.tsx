@@ -1,20 +1,17 @@
 import React from "react"
 import { Box } from "rebass"
 import Container from "./container"
+import styled from "./styled"
+import BackgroundImage from "gatsby-background-image"
 function Banner({ bg, header }) {
+  const StyledBackgroundImage = styled(BackgroundImage)`
+    background-blend-mode: "multiply";
+    background-size: "cover";
+    background-position: "center center";
+    height: 50vh;
+  `
   return (
-    <Box
-      as="section"
-      sx={{
-        backgroundImage: `url(${bg})`,
-        backgroundColor: "primary",
-        backgroundBlendMode: "multiply",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-
-        height: ["40vh", "50vh"],
-      }}
-    >
+    <StyledBackgroundImage fluid={bg}>
       <Container
         sx={{
           position: "relative",
@@ -31,7 +28,7 @@ function Banner({ bg, header }) {
           {header}
         </Box>
       </Container>
-    </Box>
+    </StyledBackgroundImage>
   )
 }
 

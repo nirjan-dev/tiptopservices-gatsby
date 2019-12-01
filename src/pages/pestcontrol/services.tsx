@@ -1,13 +1,13 @@
 import React from "react"
-import GlobalLayout from "../layouts/global"
+import PageLayout from "../../layouts/pageLayout"
 import { Heading } from "rebass"
-import Container from "../components/container"
-import ServicesGrid from "../components/servicesGrid"
-import Millipede from "../assets/images/millipede.jpg"
-import Bedbug from "../assets/images/bedbug.jpg"
-import cockroach from "../assets/images/cockroach.jpg"
-import rat from "../assets/images/rat.jpg"
-import ActionBtns from "../components/actionBtns"
+import Container from "../../components/container"
+import ServicesGrid from "../../components/servicesGrid"
+import Millipede from "../../assets/images/millipede.jpg"
+import Bedbug from "../../assets/images/bedbug.jpg"
+import cockroach from "../../assets/images/cockroach.jpg"
+import rat from "../../assets/images/rat.jpg"
+import ActionBtns from "../../components/actionBtns"
 import { Box } from "rebass"
 export default () => {
   const services = [
@@ -73,7 +73,7 @@ export default () => {
     },
   ]
   return (
-    <GlobalLayout>
+    <PageLayout>
       <Container my={2}>
         <Box
           sx={{
@@ -92,6 +92,6 @@ export default () => {
           </Box>
         </Box>
       </Container>
-    </GlobalLayout>
+    </PageLayout>
   )
 }

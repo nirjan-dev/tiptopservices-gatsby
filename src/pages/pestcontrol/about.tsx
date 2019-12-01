@@ -1,13 +1,29 @@
 import React from "react"
 
-import GlobalLayout from "../layouts/global"
-import Banner from "../components/banner"
-import exterminator from "../assets/images/exterminator.jpg"
+import PageLayout from "../../layouts/pageLayout"
+import Banner from "../../components/banner"
+import exterminator from "../../assets/images/exterminator.jpg"
 import { Heading, Text, Box } from "rebass"
-import Container from "../components/container"
-import Testimonials from "../components/testimonials"
-import ActionBtns from "../components/actionBtns"
+import Container from "../../components/container"
+import Testimonials from "../../components/testimonials"
+import ActionBtns from "../../components/actionBtns"
+import { useStaticQuery, graphql } from "gatsby"
+import BlockContent from "@sanity/block-content-to-react"
 export default () => {
+  const data = useStaticQuery(graphql`
+    {
+      sanityPestcontrol {
+        about_banner {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        about_content: _rawCompanyDescription
+      }
+    }
+  `)
   const testimonials = [
     {
       quote: "Very prompt and the task was completed to a very high standard",
@@ -42,26 +58,20 @@ export default () => {
     },
   ]
   return (
-    <GlobalLayout>
-      <Banner bg={exterminator} header={<Heading>About us</Heading>} />
+    <PageLayout>
+      <Banner
+        bg={data.sanityPestcontrol.about_banner.asset.fluid}
+        header={<Heading>About us</Heading>}
+      />
       <Container my={[3, 4, 5]}>
         <Box
           sx={{ display: "grid", gridGap: "2" }}
           maxWidth="69ch"
           py={[2, 3, 4]}
         >
-          <Text>
-            We are a pest control company based in Melbourne, Australia. We have
-            been providing as the name suggests tip top service for our
-            customers for almost 10 years. We take pride in
-            <ol>
-              <li>
-                Responding to client enquires in the quickest time possible
-              </li>
-              <li>Only using the best and safest chemicals </li>
-              <li>Customer satisfaction guarenteed</li>
-            </ol>
-          </Text>
+          <BlockContent
+            blocks={data.sanityPestcontrol.about_content}
+          ></BlockContent>
           <ActionBtns />
         </Box>
       </Container>
@@ -74,6 +84,6 @@ export default () => {
           <Testimonials testimonials={testimonials} />
         </Container>
       </Box>
-    </GlobalLayout>
+    </PageLayout>
   )
 }
