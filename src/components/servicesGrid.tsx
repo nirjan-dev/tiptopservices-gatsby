@@ -1,11 +1,15 @@
 import React from "react"
 import { Flex, Text, Box, Heading, Link } from "rebass"
+import styled from "./styled"
+import BackgroundImage from "gatsby-background-image"
 function ServicesGrid({ services }) {
+  const StyledBackgroundImage = styled(BackgroundImage)``
   return (
     <Flex flexWrap="wrap">
       {services.map(service => {
         return (
           <Box
+            key={service.link}
             my={2}
             width={[1 / 2, 1 / 2, 1 / 3, 1 / 4]}
             px={[2, 3, 4]}
@@ -13,28 +17,7 @@ function ServicesGrid({ services }) {
               overflow: "hidden",
             }}
           >
-            <Box
-              as={Link}
-              href={service.link}
-              sx={{
-                background: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 45%),url(${service.image})`,
-                backgroundSize: "cover",
-                borderRadius: 8,
-                color: "white",
-                height: "20vh",
-                position: "relative",
-                display: "block",
-                transition: "transform 200ms ease-in",
-                boxShadow: "card",
-                ":hover,:active": {
-                  transform: "scale(1.12)",
-                },
-                ":focus": {
-                  border: "3px solid",
-                  borderColor: "primary",
-                },
-              }}
-            >
+            <Box as={Link} href={service.link} sx={{}}>
               <Box
                 as="span"
                 textAlign="center"

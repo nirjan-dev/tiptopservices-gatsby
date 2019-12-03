@@ -3,6 +3,8 @@ export const customTheme = {
   colors: {
     primary: "#009245",
 
+    primaryTransparent: "rgba(0, 146, 69, 0.6)",
+
     secondary: "#0088ff",
 
     secondaryLight: "#9999cc",

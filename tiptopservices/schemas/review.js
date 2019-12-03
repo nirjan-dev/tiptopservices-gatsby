@@ -18,14 +18,20 @@ export default {
       title: "Review Type",
       description: "Is the Review related to Pest Control or Cleaning?",
       type: "string",
-      list: ["pest control", "cleaning"],
-      layout: "radio",
+      options: {
+        list: ["Pest Control", "Cleaning"],
+        layout: "radio",
+      },
     },
     {
       name: "content",
       title: "Review",
       description: "The review of the customer",
       type: "text",
+      validation: Rule =>
+        Rule.max(100).warning(
+          "Reviews should not be longer then 100 characters"
+        ),
     },
     {
       name: "location",

@@ -3,10 +3,12 @@ import { IoIosInformationCircle, IoIosMail, IoIosList } from "react-icons/io"
 import { Image, Flex, Box } from "rebass"
 import styled from "../components/styled"
 import Logo from "../assets/images/tiptop2.png"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import GatsbyImg from "gatsby-image"
 import { useTheme } from "emotion-theming"
-import { customThemeType } from "../theme"
+import { customThemeType, customTheme } from "../theme"
+import css from "@emotion/css"
 const StyledNav = styled.nav`
   .nav-icon {
     width: 2rem;
@@ -30,7 +32,7 @@ const StyledNav = styled.nav`
     align-items: center;
     color: ${props => props.theme["colors"].gray};
     text-decoration: none;
-    font-family: ${props => props.theme.fonts.heading};
+    font-family: ${props => props.theme["fonts"].heading};
 
     &.active,
     &:hover,
@@ -41,7 +43,21 @@ const StyledNav = styled.nav`
 `
 
 function Nav({ onOpenClick }) {
-  const theme: customThemeType = useTheme()
+  const theme = customTheme
+  const data = useStaticQuery(graphql`
+    {
+      sanityPestcontrol {
+        logo {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <StyledNav role="navigation">
       <Flex
@@ -56,15 +72,10 @@ function Nav({ onOpenClick }) {
         <Box
           sx={{
             display: ["none", "none", "block"],
+            minWidth: "4rem",
           }}
         >
-          <Image
-            src={Logo}
-            sx={{
-              maxWidth: "4.8rem",
-              height: "auto",
-            }}
-          />
+          <GatsbyImg fluid={data.sanityPestcontrol.logo.asset.fluid} />
         </Box>
 
         <Flex
@@ -87,15 +98,18 @@ function Nav({ onOpenClick }) {
               to="/pestcontrol"
               className="nav-item"
             >
-              <Image
+              <Box
                 sx={{
                   display: ["block", "block", "none"],
                 }}
-                img
-                className="nav-icon"
-                src={Logo}
-                alt="tiptop pest control"
-              />
+                as="span"
+              >
+                <GatsbyImg
+                  fluid={data.sanityPestcontrol.logo.asset.fluid}
+                  className="nav-icon"
+                  alt="tiptop pest control"
+                />
+              </Box>
 
               <span>Home</span>
             </AniLink>

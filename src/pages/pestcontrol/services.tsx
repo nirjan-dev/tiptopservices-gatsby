@@ -9,69 +9,35 @@ import cockroach from "../../assets/images/cockroach.jpg"
 import rat from "../../assets/images/rat.jpg"
 import ActionBtns from "../../components/actionBtns"
 import { Box } from "rebass"
+import { graphql, useStaticQuery } from "gatsby"
 export default () => {
-  const services = [
+  const data = useStaticQuery(graphql`
     {
-      title: "Cockroach",
-      image: cockroach,
-      link: "#",
-    },
-    {
-      title: "Bedbugs",
-      image: Bedbug,
-      link: "#",
-    },
-    {
-      title: "Millipede",
-      image: Millipede,
-      link: "#",
-    },
-    {
-      title: "Rats",
-      image: rat,
-      link: "#",
-    },
-    {
-      title: "Cockroach",
-      image: cockroach,
-      link: "#",
-    },
-    {
-      title: "Bedbugs",
-      image: Bedbug,
-      link: "#",
-    },
-    {
-      title: "Millipede",
-      image: Millipede,
-      link: "#",
-    },
-    {
-      title: "Rats",
-      image: rat,
-      link: "#",
-    },
-    {
-      title: "Cockroach",
-      image: cockroach,
-      link: "#",
-    },
-    {
-      title: "Bedbugs",
-      image: Bedbug,
-      link: "#",
-    },
-    {
-      title: "Millipede",
-      image: Millipede,
-      link: "#",
-    },
-    {
-      title: "Rats",
-      image: rat,
-      link: "#",
-    },
-  ]
+      allSanityService(filter: { service_type: { eq: "Pest Control" } }) {
+        nodes {
+          title
+          slug {
+            current
+          }
+          image {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const services = data.allSanityService.nodes.map(node => {
+    return {
+      title: node.title,
+      link: node.slug.current,
+      image: node.image.asset.fluid,
+    }
+  })
+  console.log(services)
   return (
     <PageLayout>
       <Container my={2}>

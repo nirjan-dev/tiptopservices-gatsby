@@ -21,42 +21,20 @@ export default () => {
           }
         }
         about_content: _rawCompanyDescription
+        customer_review_heading
+      }
+
+      allSanityReview(filter: { review_type: { eq: "Pest Control" } }) {
+        nodes {
+          name
+          content
+          location
+        }
       }
     }
   `)
-  const testimonials = [
-    {
-      quote: "Very prompt and the task was completed to a very high standard",
-      name: "Tim Davies",
-      location: "Oak Park",
-    },
-    {
-      quote:
-        "“Amazing service, very professional, punctual, polite. Highly recommended.”",
-      name: "Swe V.",
-      location: "Glenroy",
-    },
-    {
-      quote: "They have a friendly team and arrived in time",
-      name: "Jonny Ive",
-      location: "Moonee Ponds",
-    },
-    {
-      quote: "They have a friendly team and arrived in time",
-      name: "Jonny Ive",
-      location: "Moonee Ponds",
-    },
-    {
-      quote: "They have a friendly team and arrived in time",
-      name: "Jonny Ive",
-      location: "Moonee Ponds",
-    },
-    {
-      quote: "They have a friendly team and arrived in time",
-      name: "Jonny Ive",
-      location: "Moonee Ponds",
-    },
-  ]
+  const testimonials = data.allSanityReview.nodes
+
   return (
     <PageLayout>
       <Banner
@@ -78,7 +56,7 @@ export default () => {
       <Box bg="lighter" py={[4, 5, 6]} my={[1, 2, 3]}>
         <Container>
           <Heading as="h3" fontSize={[2, 3, 3]}>
-            Hear from our customers
+            {data.sanityPestcontrol.customer_review_heading}
           </Heading>
 
           <Testimonials testimonials={testimonials} />

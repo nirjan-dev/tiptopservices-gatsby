@@ -60,7 +60,7 @@ function Testimonials({ testimonials }) {
             <Box
               sx={{
                 p: "3",
-                mb: "5",
+                mb: "7",
               }}
             >
               <Box
@@ -82,7 +82,7 @@ function Testimonials({ testimonials }) {
                   justifyContent="center"
                   as="article"
                 >
-                  <Text as="blockquote">{testimonial.quote}</Text>
+                  <Text as="blockquote">{testimonial.content}</Text>
                   <Text color="primary" fontWeight="bold" as="cite">
                     {testimonial.name}
                   </Text>

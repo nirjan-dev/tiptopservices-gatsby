@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Umesh Unknown <tiptopservices77@gmail.com>",
+  "author": "Umesh Khadka <tiptopservices77@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",

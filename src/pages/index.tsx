@@ -7,6 +7,12 @@ import { Flex } from "rebass"
 import { useTheme } from "emotion-theming"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { customTheme } from "../theme"
+const StyledBackgroundImage = styled(BackgroundImage)`
+  ::before,
+  ::after {
+    background-blend-mode: multiply;
+  }
+`
 const HomeConatiner = styled.div`
   width: 100%;
   height: 100vh;
@@ -64,34 +70,28 @@ const HomeConatiner = styled.div`
       width: 100vw;
       height: 50vh;
     }
-    .tiptop-page.pest-control-page {
-      right: auto;
-      top: 50%;
-    }
   }
 `
 function Home() {
   const data = useStaticQuery(graphql`
     {
-      allSanityHome {
-        nodes {
-          cleaners_image {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
-              }
+      sanityHome {
+        cleaners_image {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
             }
           }
-          pestcontrol_image {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          cleaners_title
-          pestcontrol_title
         }
+        pestcontrol_image {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        cleaners_title
+        pestcontrol_title
       }
     }
   `)
@@ -99,40 +99,40 @@ function Home() {
   return (
     <GlobalLayout>
       <HomeConatiner>
-        <BackgroundImage
+        <StyledBackgroundImage
           backgroundColor={`rgba(0,0,0,0.6)`}
-          fluid={data.allSanityHome.nodes[0].cleaners_image.asset.fluid}
+          fluid={data.sanityHome.cleaners_image.asset.fluid}
           className="cleaning-page tiptop-page"
         >
           <div className="page-info">
-            <h1>Cleaning Serivices</h1>
+            <h2>{data.sanityHome.cleaners_title}</h2>
             <AniLink
               paintDrop
-              hex={theme["colors"].primaryLight}
-              to="cleaning"
+              hex={theme.colors.primaryLight}
+              to="/cleaning"
               className="visit-site-btn"
             >
               Visit Site
             </AniLink>
           </div>
-        </BackgroundImage>
-        <BackgroundImage
-          fluid={data.allSanityHome.nodes[0].pestcontrol_image.asset.fluid}
+        </StyledBackgroundImage>
+        <StyledBackgroundImage
+          fluid={data.sanityHome.pestcontrol_image.asset.fluid}
           className="pest-control-page tiptop-page"
           backgroundColor={`rgba(0,0,0,0.6)`}
         >
           <div className="page-info">
-            <h1>Pest Control Services</h1>
+            <h2>{data.sanityHome.pestcontrol_title}</h2>
             <AniLink
               paintDrop
-              hex={theme["colors"].primaryLight}
-              to="pestcontrol"
+              hex={theme.colors.primaryLight}
+              to="/pestcontrol"
               className="visit-site-btn"
             >
               Visit Site
             </AniLink>
           </div>
-        </BackgroundImage>
+        </StyledBackgroundImage>
       </HomeConatiner>
     </GlobalLayout>
   )

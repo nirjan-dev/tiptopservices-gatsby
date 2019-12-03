@@ -18,8 +18,10 @@ export default {
       title: "Service Type",
       description: "Is the Service related to Pest Control or Cleaning?",
       type: "string",
-      list: ["pest control", "cleaning"],
-      layout: "radio",
+      options: {
+        list: ["Pest Control", "Cleaning"],
+        layout: "radio",
+      },
     },
     {
       name: "image",
@@ -32,6 +34,16 @@ export default {
       title: "Service Description",
       description: "The description of the service",
       type: "blockContent",
+    },
+    {
+      name: "slug",
+      title: "Slug",
+      description:
+        "The link to the service. Use the generate button to automatically set the url",
+      type: "slug",
+      options: {
+        source: "title",
+      },
     },
   ],
 }
