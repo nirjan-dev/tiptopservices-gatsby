@@ -7,6 +7,7 @@ module.exports = {
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-source-sanity",
       options: {
