@@ -1,4 +1,4 @@
-import icon from "react-icons/lib/md/bug-report"
+import icon from "react-icons/lib/io/waterdrop"
 
 export default {
   name: "cleaning",
@@ -118,4 +118,11 @@ export default {
       description: "Enter the description for the services page used for SEO",
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Click here to edit cleaning site settings",
+      }
+    },
+  },
 }

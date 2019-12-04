@@ -44,4 +44,12 @@ export default {
       description: "Enter the description for the homepage used for SEO",
     },
   ],
+
+  preview: {
+    prepare() {
+      return {
+        title: "Click here to edit Home screen settings",
+      }
+    },
+  },
 }

@@ -37,7 +37,7 @@ export default () => {
       image: node.image.asset.fluid,
     }
   })
-  console.log(services)
+
   return (
     <PageLayout>
       <Container my={2}>

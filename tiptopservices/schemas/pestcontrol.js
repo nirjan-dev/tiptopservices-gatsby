@@ -1,5 +1,5 @@
 import icon from "react-icons/lib/md/bug-report"
-
+import React from "react"
 export default {
   name: "pestcontrol",
   title: "Pest Control Settings",
@@ -119,4 +119,11 @@ export default {
       description: "Enter the description for the services page used for SEO",
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: "Click here to edit pest control site settings",
+      }
+    },
+  },
 }

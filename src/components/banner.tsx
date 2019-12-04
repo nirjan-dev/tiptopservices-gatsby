@@ -4,7 +4,7 @@ import Container from "./container"
 import styled from "./styled"
 import BackgroundImage from "gatsby-background-image"
 import { customTheme } from "../theme"
-function Banner({ bg, header }) {
+function Banner(props) {
   const theme = customTheme
   const StyledBackgroundImage = styled(BackgroundImage)`
     background-size: cover;
@@ -18,7 +18,7 @@ function Banner({ bg, header }) {
   `
   return (
     <StyledBackgroundImage
-      fluid={bg}
+      fluid={props.bg}
       backgroundColor={theme.colors.primaryTransparent}
     >
       <Container
@@ -34,7 +34,7 @@ function Banner({ bg, header }) {
             bottom: [4, 5, 6],
           }}
         >
-          {header}
+          {props.header ? props.header : null}
         </Box>
       </Container>
     </StyledBackgroundImage>
