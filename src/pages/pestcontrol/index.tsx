@@ -8,6 +8,7 @@ import ActionBtns from "../../components/actionBtns"
 import { useStaticQuery, graphql } from "gatsby"
 import GatsbyImg from "gatsby-image"
 import BlockContent from "@sanity/block-content-to-react"
+import SEO from "../../components/seo"
 
 export default () => {
   const data = useStaticQuery(graphql`
@@ -22,11 +23,20 @@ export default () => {
           }
         }
         subHeading: _rawSubHeading
+        seo_title
+        seo_description
       }
     }
   `)
   return (
     <PageLayout>
+      <SEO
+        page={{
+          title: data.sanityPestcontrol.seo_title,
+          description: data.sanityPestcontrol.seo_description,
+          path: "https://tiptopservices.com.au/pestcontrol",
+        }}
+      />
       <Container my={[1, 2, 4]}>
         <Flex
           sx={{

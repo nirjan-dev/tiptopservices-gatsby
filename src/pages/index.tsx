@@ -7,6 +7,7 @@ import { Flex } from "rebass"
 import { useTheme } from "emotion-theming"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { customTheme } from "../theme"
+import SEO from "../components/seo"
 const StyledBackgroundImage = styled(BackgroundImage)`
   ::before,
   ::after {
@@ -98,6 +99,7 @@ function Home() {
   const theme = customTheme
   return (
     <GlobalLayout>
+      <SEO page={{}} />
       <HomeConatiner>
         <StyledBackgroundImage
           backgroundColor={`rgba(0,0,0,0.6)`}
@@ -107,7 +109,7 @@ function Home() {
           <div className="page-info">
             <h2>{data.sanityHome.cleaners_title}</h2>
             <AniLink
-              paintDrop
+              paintDrip
               hex={theme.colors.primaryLight}
               to="/cleaning"
               className="visit-site-btn"
@@ -124,7 +126,7 @@ function Home() {
           <div className="page-info">
             <h2>{data.sanityHome.pestcontrol_title}</h2>
             <AniLink
-              paintDrop
+              paintDrip
               hex={theme.colors.primaryLight}
               to="/pestcontrol"
               className="visit-site-btn"

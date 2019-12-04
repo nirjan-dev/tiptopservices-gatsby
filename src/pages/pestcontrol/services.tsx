@@ -10,6 +10,7 @@ import rat from "../../assets/images/rat.jpg"
 import ActionBtns from "../../components/actionBtns"
 import { Box } from "rebass"
 import { graphql, useStaticQuery } from "gatsby"
+import SEO from "../../components/seo"
 export default () => {
   const data = useStaticQuery(graphql`
     {
@@ -28,6 +29,10 @@ export default () => {
           }
         }
       }
+      sanityPestcontrol {
+        seo_title_services
+        seo_description_services
+      }
     }
   `)
   const services = data.allSanityService.nodes.map(node => {
@@ -40,6 +45,13 @@ export default () => {
 
   return (
     <PageLayout>
+      <SEO
+        page={{
+          title: data.sanityPestcontrol.seo_title_services,
+          description: data.sanityPestcontrol.seo_description_services,
+          path: "https://tiptopservices.com.au/pestcontrol/services",
+        }}
+      />
       <Container my={2}>
         <Box
           sx={{

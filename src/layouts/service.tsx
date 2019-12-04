@@ -7,10 +7,21 @@ import Container from "../components/container"
 import BlockContent from "@sanity/block-content-to-react"
 import ActionBtns from "../components/actionBtns"
 import { Box } from "reflexbox"
+import SEO from "../components/seo"
 export default ({ data }) => {
   const service = data.sanityService
   return (
     <PageLayout>
+      <SEO
+        page={{
+          title: `${service.title} | Tiptop Pest Control`,
+          description: service.body[0].children[0].text,
+          path:
+            "https://tiptopservices.com.au/pestcontrol/services/" +
+            service.slug.current,
+          image: service.image.asset.fluid.src,
+        }}
+      />
       <Banner bg={service.image.asset.fluid} />
       <Container my={[4, 5, 6]}>
         <Box
@@ -40,6 +51,9 @@ export const query = graphql`
         }
       }
       body: _rawDescription
+      slug {
+        current
+      }
     }
   }
 `

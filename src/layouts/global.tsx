@@ -10,8 +10,6 @@ function GlobalLayout({ children }) {
     <ThemeProvider theme={customTheme}>
       <Global
         styles={css`
-          @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Lora&display=swap");
-
           *,
           *::after,
           *::before {

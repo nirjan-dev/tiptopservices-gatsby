@@ -9,6 +9,7 @@ import Testimonials from "../../components/testimonials"
 import ActionBtns from "../../components/actionBtns"
 import { useStaticQuery, graphql } from "gatsby"
 import BlockContent from "@sanity/block-content-to-react"
+import SEO from "../../components/seo"
 export default () => {
   const data = useStaticQuery(graphql`
     {
@@ -31,12 +32,23 @@ export default () => {
           location
         }
       }
+      sanityPestcontrol {
+        seo_title_about
+        seo_description_about
+      }
     }
   `)
   const testimonials = data.allSanityReview.nodes
 
   return (
     <PageLayout>
+      <SEO
+        page={{
+          title: data.sanityPestcontrol.seo_title_about,
+          description: data.sanityPestcontrol.seo_description_about,
+          path: "https://tiptopservices.com.au/pestcontrol/about",
+        }}
+      />
       <Banner
         bg={data.sanityPestcontrol.about_banner.asset.fluid}
         header={<Heading>About us</Heading>}

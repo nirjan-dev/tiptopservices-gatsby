@@ -33,7 +33,7 @@ function ServicesGrid({ services }) {
           >
             <AniLink
               to={`pestcontrol/services/${service.link}`}
-              paintDrop
+              paintDrip
               hex={theme["colors"].primaryLight}
             >
               <GatsbyImg
