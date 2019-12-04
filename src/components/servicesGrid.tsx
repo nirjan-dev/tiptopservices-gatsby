@@ -5,7 +5,7 @@ import BackgroundImage from "gatsby-background-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { customTheme } from "../theme"
 import GatsbyImg from "gatsby-image"
-function ServicesGrid({ services }) {
+function ServicesGrid({ services, type }) {
   const theme = customTheme
   const StyledImg = styled(GatsbyImg)`
     position: absolute;
@@ -32,7 +32,7 @@ function ServicesGrid({ services }) {
             }}
           >
             <AniLink
-              to={`pestcontrol/services/${service.link}`}
+              to={`${type}/services/${service.link}`}
               paintDrip
               hex={theme["colors"].primaryLight}
             >

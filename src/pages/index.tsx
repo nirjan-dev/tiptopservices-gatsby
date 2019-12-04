@@ -111,7 +111,7 @@ function Home() {
             <AniLink
               paintDrip
               hex={theme.colors.primaryLight}
-              to="/cleaning"
+              to="/cleaners"
               className="visit-site-btn"
             >
               Visit Site

@@ -14,7 +14,7 @@ import SEO from "../../components/seo"
 export default () => {
   const data = useStaticQuery(graphql`
     {
-      allSanityService(filter: { service_type: { eq: "Pest Control" } }) {
+      allSanityService(filter: { service_type: { eq: "Cleaning" } }) {
         nodes {
           title
           slug {
@@ -29,7 +29,7 @@ export default () => {
           }
         }
       }
-      sanityPestcontrol {
+      sanityCleaning {
         seo_title_services
         seo_description_services
       }
@@ -47,9 +47,9 @@ export default () => {
     <PageLayout>
       <SEO
         page={{
-          title: data.sanityPestcontrol.seo_title_services,
-          description: data.sanityPestcontrol.seo_description_services,
-          path: "https://tiptopservices.com.au/pestcontrol/services",
+          title: data.sanityCleaning.seo_title_services,
+          description: data.sanityCleaning.seo_description_services,
+          path: "https://tiptopservices.com.au/cleaners/services",
         }}
       />
       <Container my={2}>
@@ -60,7 +60,7 @@ export default () => {
           }}
         >
           <Heading>Our Services</Heading>
-          <ServicesGrid services={services} type="pestcontrol" />
+          <ServicesGrid services={services} type="cleaners" />
           <Box
             sx={{
               maxWidth: "60ch",
