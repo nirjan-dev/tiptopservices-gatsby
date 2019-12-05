@@ -1,8 +1,6 @@
 import React from "react"
-
 import PageLayout from "../../layouts/pageLayout"
 import Banner from "../../components/banner"
-import exterminator from "../../assets/images/exterminator.jpg"
 import { Heading, Text, Box } from "rebass"
 import Container from "../../components/container"
 import Testimonials from "../../components/testimonials"
@@ -41,12 +39,12 @@ export default () => {
   const testimonials = data.allSanityReview.nodes
 
   return (
-    <PageLayout>
+    <PageLayout type="cleaners">
       <SEO
         page={{
           title: data.sanityCleaning.seo_title_about,
           description: data.sanityCleaning.seo_description_about,
-          path: "https://tiptopservices.com.au/cleaners/about",
+          path: "./cleaners/about",
         }}
       />
       <Banner

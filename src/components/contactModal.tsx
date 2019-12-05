@@ -3,8 +3,24 @@ import ReactModal from "react-modal"
 import { Box } from "rebass"
 import Button from "./button"
 import { Label, Input, Textarea } from "@rebass/forms"
-function ContactModal({ isOpen, children, onCloseClick }) {
+function ContactModal({ isOpen, children, onCloseClick, type }) {
   ReactModal.setAppElement("#___gatsby")
+  let dynamicFeild
+  if (type === "pestcontrol") {
+    dynamicFeild = (
+      <Box>
+        <Label htmlFor="pest">Pests</Label>
+        <Input id="pest" name="pest" />
+      </Box>
+    )
+  } else {
+    dynamicFeild = (
+      <Box>
+        <Label htmlFor="service">Service Needed?</Label>
+        <Input id="service" name="service" />
+      </Box>
+    )
+  }
   return (
     <ReactModal
       isOpen={isOpen}
@@ -31,7 +47,18 @@ function ContactModal({ isOpen, children, onCloseClick }) {
           maxWidth: "65ch",
           margin: "0 auto",
         }}
+        name="contact"
+        action="/"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
       >
+        <input type="hidden" name="form-name" value="contact" />
+        <div hidden>
+          <label>
+            Don’t fill this out: <input name="bot-field" />
+          </label>
+        </div>
         <Box sx={{ display: "grid", gridGap: 4 }}>
           <Box>
             <Label htmlFor="name">Name</Label>
@@ -41,10 +68,7 @@ function ContactModal({ isOpen, children, onCloseClick }) {
             <Label htmlFor="phone">Phone</Label>
             <Input id="phone" name="phone" />
           </Box>
-          <Box>
-            <Label htmlFor="pest">Pests</Label>
-            <Input id="pest" name="pest" />
-          </Box>
+          {dynamicFeild}
           <Box>
             <Label htmlFor="address">Address</Label>
             <Textarea id="address" name="address" />

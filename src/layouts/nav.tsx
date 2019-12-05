@@ -2,13 +2,10 @@ import React from "react"
 import { IoIosInformationCircle, IoIosMail, IoIosList } from "react-icons/io"
 import { Image, Flex, Box } from "rebass"
 import styled from "../components/styled"
-import Logo from "../assets/images/tiptop2.png"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import GatsbyImg from "gatsby-image"
-import { useTheme } from "emotion-theming"
-import { customThemeType, customTheme } from "../theme"
-import css from "@emotion/css"
+import { customTheme } from "../theme"
 const StyledNav = styled.nav`
   .nav-icon {
     width: 2rem;
@@ -42,7 +39,7 @@ const StyledNav = styled.nav`
   }
 `
 
-function Nav({ onOpenClick }) {
+function Nav({ onOpenClick, type }) {
   const theme = customTheme
   const data = useStaticQuery(graphql`
     {
@@ -55,9 +52,20 @@ function Nav({ onOpenClick }) {
           }
         }
       }
+      sanityCleaning {
+        logo {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
     }
   `)
 
+  const pestLogo = data.sanityPestcontrol.logo.asset.fluid
+  const cleanLogo = data.sanityCleaning.logo.asset.fluid
   return (
     <StyledNav role="navigation">
       <Flex
@@ -75,7 +83,7 @@ function Nav({ onOpenClick }) {
             minWidth: "4rem",
           }}
         >
-          <GatsbyImg fluid={data.sanityPestcontrol.logo.asset.fluid} />
+          <GatsbyImg fluid={type === "pestcontrol" ? pestLogo : cleanLogo} />
         </Box>
 
         <Flex
@@ -95,7 +103,7 @@ function Nav({ onOpenClick }) {
               activeClassName="active"
               hex={theme["colors"].primaryLight}
               paintDrip
-              to="/pestcontrol"
+              to={`/${type}`}
               className="nav-item"
             >
               <Box
@@ -105,7 +113,7 @@ function Nav({ onOpenClick }) {
                 as="span"
               >
                 <GatsbyImg
-                  fluid={data.sanityPestcontrol.logo.asset.fluid}
+                  fluid={type === "pestcontrol" ? pestLogo : cleanLogo}
                   className="nav-icon"
                   alt="tiptop pest control"
                 />
@@ -119,7 +127,7 @@ function Nav({ onOpenClick }) {
               activeClassName="active"
               hex={theme["colors"].primaryLight}
               paintDrip
-              to="/pestcontrol/about"
+              to={`/${type}/about`}
               className="nav-item"
             >
               <Box
@@ -137,7 +145,7 @@ function Nav({ onOpenClick }) {
               activeClassName="active"
               hex={theme["colors"].primaryLight}
               paintDrip
-              to="/pestcontrol/services"
+              to={`/${type}/services`}
               className="nav-item"
             >
               <Box

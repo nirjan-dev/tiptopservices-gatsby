@@ -58,6 +58,7 @@ function Testimonials({ testimonials }) {
         {testimonials.map(testimonial => {
           return (
             <Box
+              key={testimonial.name}
               sx={{
                 p: "3",
                 mb: "7",

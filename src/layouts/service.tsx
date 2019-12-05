@@ -11,14 +11,16 @@ import SEO from "../components/seo"
 export default ({ data }) => {
   const service = data.sanityService
   return (
-    <PageLayout>
+    <PageLayout
+      type={
+        service.service_type === "Pest Control" ? "pestcontrol" : "cleaners"
+      }
+    >
       <SEO
         page={{
           title: `${service.title} | Tiptop Pest Control`,
           description: service.body[0].children[0].text,
-          path:
-            "https://tiptopservices.com.au/pestcontrol/services/" +
-            service.slug.current,
+          path: "./pestcontrol/services/" + service.slug.current,
           image: service.image.asset.fluid.src,
         }}
       />
@@ -54,6 +56,7 @@ export const query = graphql`
       slug {
         current
       }
+      service_type
     }
   }
 `

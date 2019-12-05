@@ -1,7 +1,5 @@
 import React from "react"
-
 import PageLayout from "../../layouts/pageLayout"
-import Rellax from "../../assets/images/rellax.svg"
 import { Image, Heading, Text, Box, Flex } from "rebass"
 import Container from "../../components/container"
 import ActionBtns from "../../components/actionBtns"
@@ -29,12 +27,12 @@ export default () => {
     }
   `)
   return (
-    <PageLayout>
+    <PageLayout type="cleaners">
       <SEO
         page={{
           title: data.sanityCleaning.seo_title,
           description: data.sanityCleaning.seo_description,
-          path: "https://tiptopservices.com.au/cleaners",
+          path: "./cleaners",
         }}
       />
       <Container my={[1, 2, 4]}>

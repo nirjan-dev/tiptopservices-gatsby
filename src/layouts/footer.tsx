@@ -3,10 +3,15 @@ import Container from "../components/container"
 import { IoLogoFacebook, IoLogoTwitter, IoLogoInstagram } from "react-icons/io"
 import { Flex, Box, Link } from "rebass"
 import { useStaticQuery, graphql } from "gatsby"
-function Footer() {
+function Footer({ type }) {
   const data = useStaticQuery(graphql`
     {
       sanityPestcontrol {
+        facebook_link
+        twitter_link
+        instagram_link
+      }
+      sanityCleaning {
         facebook_link
         twitter_link
         instagram_link
@@ -34,7 +39,11 @@ function Footer() {
           >
             <Box mr={3} as="li">
               <Link
-                href={data.sanityPestcontrol.facebook_link}
+                href={
+                  type === "pestcontrol"
+                    ? data.sanityPestcontrol.facebook_link
+                    : data.sanityCleaning.facebook_link
+                }
                 target="_blank"
                 rel="noopener"
               >
@@ -43,7 +52,11 @@ function Footer() {
             </Box>
             <Box mr={3} as="li">
               <Link
-                href={data.sanityPestcontrol.twitter_link}
+                href={
+                  type === "pestcontrol"
+                    ? data.sanityPestcontrol.twitter_link
+                    : data.sanityCleaning.twitter_link
+                }
                 target="_blank"
                 rel="noopener"
               >
@@ -52,7 +65,11 @@ function Footer() {
             </Box>
             <Box mr={3} as="li">
               <Link
-                href={data.sanityPestcontrol.instagram_link}
+                href={
+                  type === "pestcontrol"
+                    ? data.sanityPestcontrol.instagram_link
+                    : data.sanityCleaning.instagram_link
+                }
                 target="_blank"
                 rel="noopener"
               >

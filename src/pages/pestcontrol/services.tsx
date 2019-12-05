@@ -3,10 +3,6 @@ import PageLayout from "../../layouts/pageLayout"
 import { Heading } from "rebass"
 import Container from "../../components/container"
 import ServicesGrid from "../../components/servicesGrid"
-import Millipede from "../../assets/images/millipede.jpg"
-import Bedbug from "../../assets/images/bedbug.jpg"
-import cockroach from "../../assets/images/cockroach.jpg"
-import rat from "../../assets/images/rat.jpg"
 import ActionBtns from "../../components/actionBtns"
 import { Box } from "rebass"
 import { graphql, useStaticQuery } from "gatsby"
@@ -44,12 +40,12 @@ export default () => {
   })
 
   return (
-    <PageLayout>
+    <PageLayout type="pestcontrol">
       <SEO
         page={{
           title: data.sanityPestcontrol.seo_title_services,
           description: data.sanityPestcontrol.seo_description_services,
-          path: "https://tiptopservices.com.au/pestcontrol/services",
+          path: "./pestcontrol/services",
         }}
       />
       <Container my={2}>

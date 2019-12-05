@@ -7,7 +7,7 @@ import { useGlobal } from "../state/state"
 import { Box } from "rebass"
 import GlobalLayout from "./global"
 
-function PageLayout({ children }) {
+function PageLayout({ children, type }) {
   const [{ isContactOpen }, globalActions] = useGlobal()
   return (
     <GlobalLayout>
@@ -16,14 +16,15 @@ function PageLayout({ children }) {
           minHeight: "110vh",
         }}
       >
-        <Nav onOpenClick={() => globalActions.openModal()} />
+        <Nav type={type} onOpenClick={() => globalActions.openModal()} />
 
         {children}
 
-        <Footer />
+        <Footer type={type} />
       </Box>
 
       <ContactModal
+        type={type}
         onCloseClick={() => globalActions.closeModal()}
         isOpen={isContactOpen}
       >

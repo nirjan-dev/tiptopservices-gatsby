@@ -23,8 +23,12 @@ const SEO = ({
 
   const defaults = data.sanityHome
 
-  if (defaults.baseUrl === undefined && typeof window !== "undefined") {
-    defaults.baseUrl = window.location.origin
+  if (defaults.baseUrl === undefined) {
+    if (typeof window !== "undefined") {
+      defaults.baseUrl = window.location.origin
+    } else {
+      defaults.baseUrl = "https://tiptopservices.com.au"
+    }
   }
 
   const title = page.title || defaults.title
