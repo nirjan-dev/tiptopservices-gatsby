@@ -4,9 +4,15 @@ import { Image, Flex, Box } from "rebass"
 import styled from "../components/styled"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { TransitionPortal } from "gatsby-plugin-transition-link"
 import GatsbyImg from "gatsby-image"
 import { customTheme } from "../theme"
 const StyledNav = styled.nav`
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: ${props => props.theme["colors"].bg};
   .nav-icon {
     width: 2rem;
     height: 2rem;
@@ -14,11 +20,6 @@ const StyledNav = styled.nav`
 
   .nav {
     list-style-type: none;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background: ${props => props.theme["colors"].bg};
   }
 
   .nav-item {
@@ -67,122 +68,132 @@ function Nav({ onOpenClick, type }) {
   const pestLogo = data.sanityPestcontrol.logo.asset.fluid
   const cleanLogo = data.sanityCleaning.logo.asset.fluid
   return (
-    <StyledNav role="navigation">
-      <Flex
-        justifyContent="space-between"
-        alignItems="center"
-        p={[0, 0, 3]}
+    <TransitionPortal
+      style={{
+        width: "100%",
+      }}
+    >
+      <Box
+        as={StyledNav}
+        role="navigation"
         sx={{
-          maxWidth: ["100%", "100%", "92%"],
-          margin: "0 auto",
+          position: ["fixed", "fixed", "static"],
+          boxShadow: ["nav", "nav", "none"],
         }}
       >
-        <Box
-          sx={{
-            display: ["none", "none", "block"],
-            minWidth: "4rem",
-          }}
-        >
-          <GatsbyImg fluid={type === "pestcontrol" ? pestLogo : cleanLogo} />
-        </Box>
-
         <Flex
-          flex="0.6"
-          className="nav"
-          as="ul"
-          padding="3"
           justifyContent="space-between"
           alignItems="center"
+          p={[0, 0, 3]}
           sx={{
-            position: ["fixed", "fixed", "static"],
-            boxShadow: ["nav", "nav", "none"],
+            maxWidth: ["100%", "100%", "92%"],
+            margin: "0 auto",
           }}
         >
-          <Box as="li">
-            <AniLink
-              activeClassName="active"
-              hex={theme["colors"].primaryLight}
-              paintDrip
-              to={`/${type}`}
-              className="nav-item"
-            >
-              <Box
-                sx={{
-                  display: ["block", "block", "none"],
-                }}
-                as="span"
+          <Box
+            sx={{
+              display: ["none", "none", "block"],
+              minWidth: "4rem",
+            }}
+          >
+            <GatsbyImg fluid={type === "pestcontrol" ? pestLogo : cleanLogo} />
+          </Box>
+
+          <Flex
+            maxWidth="800px"
+            width="100%"
+            className="nav"
+            as="ul"
+            padding="3"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Box as="li">
+              <AniLink
+                activeClassName="active"
+                hex={theme["colors"].primaryLight}
+                paintDrip
+                to={`/${type}`}
+                className="nav-item"
               >
-                <GatsbyImg
-                  fluid={type === "pestcontrol" ? pestLogo : cleanLogo}
+                <Box
+                  sx={{
+                    display: ["block", "block", "none"],
+                  }}
+                  as="span"
+                >
+                  <GatsbyImg
+                    fluid={type === "pestcontrol" ? pestLogo : cleanLogo}
+                    className="nav-icon"
+                    alt="tiptop pest control"
+                  />
+                </Box>
+
+                <span>Home</span>
+              </AniLink>
+            </Box>
+            <Box>
+              <AniLink
+                activeClassName="active"
+                hex={theme["colors"].primaryLight}
+                paintDrip
+                to={`/${type}/about`}
+                className="nav-item"
+              >
+                <Box
+                  sx={{
+                    display: ["block", "block", "none"],
+                  }}
+                  as={IoIosInformationCircle}
                   className="nav-icon"
-                  alt="tiptop pest control"
                 />
-              </Box>
+                <span>Why us?</span>
+              </AniLink>
+            </Box>
+            <Box as="li">
+              <AniLink
+                activeClassName="active"
+                hex={theme["colors"].primaryLight}
+                paintDrip
+                to={`/${type}/services`}
+                className="nav-item"
+              >
+                <Box
+                  sx={{
+                    display: ["block", "block", "none"],
+                  }}
+                  as={IoIosList}
+                  className="nav-icon"
+                />
 
-              <span>Home</span>
-            </AniLink>
-          </Box>
-          <Box>
-            <AniLink
-              activeClassName="active"
-              hex={theme["colors"].primaryLight}
-              paintDrip
-              to={`/${type}/about`}
-              className="nav-item"
-            >
-              <Box
-                sx={{
-                  display: ["block", "block", "none"],
+                <span>Services</span>
+              </AniLink>
+            </Box>
+            <Box as="li">
+              <a
+                role="button"
+                href="#"
+                onClick={e => {
+                  e.preventDefault()
+                  onOpenClick()
                 }}
-                as={IoIosInformationCircle}
-                className="nav-icon"
-              />
-              <span>Why us?</span>
-            </AniLink>
-          </Box>
-          <Box as="li">
-            <AniLink
-              activeClassName="active"
-              hex={theme["colors"].primaryLight}
-              paintDrip
-              to={`/${type}/services`}
-              className="nav-item"
-            >
-              <Box
-                sx={{
-                  display: ["block", "block", "none"],
-                }}
-                as={IoIosList}
-                className="nav-icon"
-              />
+                className="nav-item"
+              >
+                <Box
+                  sx={{
+                    display: ["block", "block", "none"],
+                  }}
+                  as={IoIosMail}
+                  className="nav-icon"
+                />
 
-              <span>Services</span>
-            </AniLink>
-          </Box>
-          <Box as="li">
-            <a
-              role="button"
-              href="#"
-              onClick={e => {
-                e.preventDefault()
-                onOpenClick()
-              }}
-              className="nav-item"
-            >
-              <Box
-                sx={{
-                  display: ["block", "block", "none"],
-                }}
-                as={IoIosMail}
-                className="nav-icon"
-              />
-
-              <span>Contact</span>
-            </a>
-          </Box>
+                <span>Contact</span>
+              </a>
+            </Box>
+          </Flex>
         </Flex>
-      </Flex>
-    </StyledNav>
+      </Box>
+    </TransitionPortal>
   )
 }
 

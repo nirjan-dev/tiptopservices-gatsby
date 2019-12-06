@@ -3,11 +3,11 @@ import styled from "../components/styled"
 import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import GlobalLayout from "../layouts/global"
-import { Flex } from "rebass"
-import { useTheme } from "emotion-theming"
+import { Text } from "rebass"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { customTheme } from "../theme"
 import SEO from "../components/seo"
+import Container from "../components/container"
 const StyledBackgroundImage = styled(BackgroundImage)`
   ::before,
   ::after {
@@ -38,10 +38,6 @@ const HomeConatiner = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
   }
-  .tiptop-page h1 {
-    font-size: 3rem;
-    font-weight: 500;
-  }
 
   .visit-site-btn {
     color: #fff;
@@ -61,9 +57,6 @@ const HomeConatiner = styled.div`
   }
 
   @media screen and (max-width: 1050px) {
-    .tiptop-page h1 {
-      font-size: 2rem;
-    }
   }
 
   @media screen and (max-width: 630px) {
@@ -107,15 +100,24 @@ function Home() {
           className="cleaning-page tiptop-page"
         >
           <div className="page-info">
-            <h2>{data.sanityHome.cleaners_title}</h2>
-            <AniLink
-              paintDrip
-              hex={theme.colors.primaryLight}
-              to="/cleaners"
-              className="visit-site-btn"
-            >
-              Visit Site
-            </AniLink>
+            <Container>
+              <Text
+                className="body-font"
+                as="h2"
+                fontSize={[4, 5, 6]}
+                mb={[3, 4, 5]}
+              >
+                {data.sanityHome.cleaners_title}
+              </Text>
+              <AniLink
+                paintDrip
+                hex={theme.colors.primaryLight}
+                to="/cleaners"
+                className="visit-site-btn"
+              >
+                Visit Site
+              </AniLink>
+            </Container>
           </div>
         </StyledBackgroundImage>
         <StyledBackgroundImage
@@ -124,15 +126,24 @@ function Home() {
           backgroundColor={`rgba(0,0,0,0.6)`}
         >
           <div className="page-info">
-            <h2>{data.sanityHome.pestcontrol_title}</h2>
-            <AniLink
-              paintDrip
-              hex={theme.colors.primaryLight}
-              to="/pestcontrol"
-              className="visit-site-btn"
-            >
-              Visit Site
-            </AniLink>
+            <Container>
+              <Text
+                className="body-font"
+                as="h2"
+                fontSize={[4, 5, 6]}
+                mb={[3, 4, 5]}
+              >
+                {data.sanityHome.pestcontrol_title}
+              </Text>
+              <AniLink
+                paintDrip
+                hex={theme.colors.primaryLight}
+                to="/pestcontrol"
+                className="visit-site-btn"
+              >
+                Visit Site
+              </AniLink>
+            </Container>
           </div>
         </StyledBackgroundImage>
       </HomeConatiner>

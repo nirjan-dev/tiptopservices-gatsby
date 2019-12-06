@@ -61,6 +61,10 @@ function GlobalLayout({ children }) {
             font-size: ${customTheme.fontSizes[0]};
           }
 
+          .body-font {
+            font-family: ${customTheme.fonts.body};
+          }
+
           .ReactModal__Overlay {
             opacity: 0;
             transition: opacity 400ms ease-in-out;
@@ -89,6 +93,10 @@ function GlobalLayout({ children }) {
 
           li {
             margin-bottom: ${customTheme.space[2]};
+          }
+
+          .gatsby-plugin-transition-link-portal {
+            width: 100%;
           }
         `}
       />
