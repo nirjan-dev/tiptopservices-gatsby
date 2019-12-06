@@ -3,7 +3,44 @@ import ReactModal from "react-modal"
 import { Box } from "rebass"
 import Button from "./button"
 import { Label, Input, Textarea } from "@rebass/forms"
+import { navigate } from "gatsby"
 function ContactModal({ isOpen, children, onCloseClick, type }) {
+  const getFormData = form => {
+    return Object.values(form).reduce((obj, field: any) => {
+      obj[field.name] = field.value
+      return obj
+    }, {})
+  }
+
+  const encode = function encodeForm(data): string {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const formData = getFormData(e.target)
+    const navigateLink = e.target.action
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+
+      body: encode({
+        "form-name": "contact " + type,
+        ...formData,
+      }),
+    })
+      .then(() => {
+        onCloseClick()
+        navigate(navigateLink)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
   ReactModal.setAppElement("#___gatsby")
   let dynamicFeild
   if (type === "pestcontrol") {
@@ -48,10 +85,11 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
           margin: "0 auto",
         }}
         name="contact"
-        action="/"
+        action={`/${type}/thanks`}
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        onSubmit={e => handleSubmit(e)}
       >
         <input type="hidden" name="form-name" value="contact" />
         <div hidden>
@@ -62,16 +100,16 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
         <Box sx={{ display: "grid", gridGap: 4 }}>
           <Box>
             <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" />
+            <Input id="name" name="name" required />
           </Box>
           <Box>
             <Label htmlFor="phone">Phone</Label>
-            <Input id="phone" name="phone" />
+            <Input id="phone" name="phone" required />
           </Box>
           {dynamicFeild}
           <Box>
             <Label htmlFor="address">Address</Label>
-            <Textarea id="address" name="address" />
+            <Textarea id="address" name="address" required />
           </Box>
           <Box
             sx={{
@@ -80,7 +118,9 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
               gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))",
             }}
           >
-            <Button variant="primary">Get a free quote</Button>
+            <Button variant="primary" type="submit">
+              Get a free quote
+            </Button>
 
             <Button variant="outline" onClick={() => onCloseClick()}>
               Cancel
