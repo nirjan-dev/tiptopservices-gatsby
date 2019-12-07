@@ -21,7 +21,6 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
   const handleSubmit = e => {
     e.preventDefault()
     const formData = getFormData(e.target)
-    const navigateLink = e.target.action
 
     fetch("/", {
       method: "POST",
@@ -34,7 +33,7 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
     })
       .then(() => {
         onCloseClick()
-        navigate(navigateLink)
+        navigate(`${type}/thanks`)
       })
       .catch(error => {
         console.error(error)
@@ -85,7 +84,7 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
           margin: "0 auto",
         }}
         name="contact"
-        action={`/${type}/thanks`}
+        action={`${type}/thanks`}
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"

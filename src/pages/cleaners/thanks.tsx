@@ -40,7 +40,7 @@ export default () => {
         header={<Heading>Thanks for contacting us</Heading>}
       />
       <Container my={[3, 4, 5]}>
-        <Text>We will get back to you as sson as possible.</Text>
+        <Text>We will get back to you as soon as possible.</Text>
       </Container>
     </PageLayout>
   )
