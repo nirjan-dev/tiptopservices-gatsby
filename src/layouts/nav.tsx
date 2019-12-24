@@ -170,13 +170,10 @@ function Nav({ onOpenClick, type }) {
               </AniLink>
             </Box>
             <Box as="li">
-              <a
-                role="button"
+              <AniLink
+              activeClassName="active"
+                to={`/${type}/contact`}
                 href="#"
-                onClick={e => {
-                  e.preventDefault()
-                  onOpenClick()
-                }}
                 className="nav-item"
               >
                 <Box
@@ -188,7 +185,7 @@ function Nav({ onOpenClick, type }) {
                 />
 
                 <span>Contact</span>
-              </a>
+              </AniLink>
             </Box>
           </Flex>
         </Flex>
