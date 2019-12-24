@@ -15,10 +15,13 @@ function GlobalLayout({ children }) {
           *::before {
             box-sizing: border-box;
           }
+          html {
+            font-size: ${customTheme.fontSizes[1]};
+          }
           body {
             font-family: ${customTheme.fonts.body};
             line-height: ${customTheme.lineHeights.body};
-            font-size: ${customTheme.fontSizes[1]};
+
             padding: 0;
             margin: 0;
           }
@@ -97,6 +100,12 @@ function GlobalLayout({ children }) {
 
           .gatsby-plugin-transition-link-portal {
             width: 100%;
+          }
+
+          @media (min-width: 90em) {
+            html {
+              font-size: calc(${customTheme.fontSizes[1]} + 0.3vw);
+            }
           }
         `}
       />

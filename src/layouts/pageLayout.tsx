@@ -15,7 +15,7 @@ function PageLayout({ children, type }) {
         sx={{
           minHeight: "100vh",
           position: "relative",
-          pt: [0, 0, 8],
+          pt: [0, 0, 7],
         }}
       >
         <Nav type={type} onOpenClick={() => globalActions.openModal()} />

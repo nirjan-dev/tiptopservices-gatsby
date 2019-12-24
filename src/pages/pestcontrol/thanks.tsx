@@ -27,7 +27,7 @@ export default () => {
   `)
 
   return (
-    <PageLayout type="cleaners">
+    <PageLayout type="pestcontrol">
       <SEO
         page={{
           title: "Thanks for contacting us | Tiptop Pest Control",

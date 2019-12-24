@@ -20,15 +20,27 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
 
   const handleSubmit = e => {
     e.preventDefault()
-    const formData = getFormData(e.target)
+    const formData: any = getFormData(e.target)
 
+    const formattedFormData: any = {
+      name: formData.name,
+      phone: formData.phone,
+      address: formData.address,
+    }
+
+    if ((type = "pestcontrol")) {
+      formattedFormData.pest = formData.pest
+    } else {
+      formattedFormData.service = formattedFormData.service
+    }
+
+    console.log(formattedFormData)
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-
       body: encode({
-        "form-name": "contact " + type,
-        ...formData,
+        "form-name": type,
+        ...formattedFormData,
       }),
     })
       .then(() => {
