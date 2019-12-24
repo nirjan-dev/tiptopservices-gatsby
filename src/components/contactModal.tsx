@@ -34,7 +34,6 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
       formattedFormData.service = formattedFormData.service
     }
 
-    console.log(formattedFormData)
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -44,12 +43,10 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
       }),
     })
       .then(() => {
-        onCloseClick()
         navigate(`${type}/thanks`)
+        onCloseClick()
       })
-      .catch(error => {
-        console.error(error)
-      })
+      .catch(error => {})
   }
 
   ReactModal.setAppElement("#___gatsby")
@@ -88,56 +85,57 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
       }}
     >
       {children}
-
       <Box
-        as="form"
         sx={{
           maxWidth: "65ch",
           margin: "0 auto",
         }}
-        name="contact"
-        action={`${type}/thanks`}
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={e => handleSubmit(e)}
       >
-        <input type="hidden" name="form-name" value="contact" />
-        <div hidden>
-          <label>
-            Don’t fill this out: <input name="bot-field" />
-          </label>
-        </div>
-        <Box sx={{ display: "grid", gridGap: 4 }}>
-          <Box>
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" required />
-          </Box>
-          <Box>
-            <Label htmlFor="phone">Phone</Label>
-            <Input id="phone" name="phone" required />
-          </Box>
-          {dynamicFeild}
-          <Box>
-            <Label htmlFor="address">Address</Label>
-            <Textarea id="address" name="address" required />
-          </Box>
-          <Box
-            sx={{
-              display: "grid",
-              gridGap: "1",
-              gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))",
-            }}
-          >
-            <Button variant="primary" type="submit">
-              Get a free quote
-            </Button>
+        <form
+          name="contact"
+          action={`${type}/thanks`}
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={e => handleSubmit(e)}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <div hidden>
+            <label>
+              Don’t fill this out: <input name="bot-field" />
+            </label>
+          </div>
+          <Box sx={{ display: "grid", gridGap: 4 }}>
+            <Box>
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" name="name" required />
+            </Box>
+            <Box>
+              <Label htmlFor="phone">Phone</Label>
+              <Input id="phone" name="phone" required />
+            </Box>
+            {dynamicFeild}
+            <Box>
+              <Label htmlFor="address">Address</Label>
+              <Textarea id="address" name="address" required />
+            </Box>
+            <Box
+              sx={{
+                display: "grid",
+                gridGap: "1",
+                gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))",
+              }}
+            >
+              <Button variant="primary" type="submit">
+                Get a free quote
+              </Button>
 
-            <Button variant="outline" onClick={() => onCloseClick()}>
-              Cancel
-            </Button>
+              <Button variant="outline" onClick={() => onCloseClick()}>
+                Cancel
+              </Button>
+            </Box>
           </Box>
-        </Box>
+        </form>
       </Box>
     </ReactModal>
   )
