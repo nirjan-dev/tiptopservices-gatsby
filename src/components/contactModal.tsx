@@ -139,15 +139,6 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
           </form>
         </Box>
       </ReactModal>
-
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="text" name="phone" />
-        <input type="text" name="address" />
-        <input type="text" name="pest" />
-        <input type="text" name="service" />
-        <textarea name="message"></textarea>
-      </form>
     </>
   )
 }
