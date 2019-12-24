@@ -29,7 +29,6 @@ export default () => {
       }
     }
   `)
-  const testimonials = data.allSanityReview.nodes
 
   return (
     <PageLayout type="cleaners">
