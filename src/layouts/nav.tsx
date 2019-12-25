@@ -68,129 +68,123 @@ function Nav({ onOpenClick, type }) {
   const pestLogo = data.sanityPestcontrol.logo.asset.fluid
   const cleanLogo = data.sanityCleaning.logo.asset.fluid
   return (
-    <TransitionPortal
-      style={{
-        width: "100%",
+    <Box
+      as={StyledNav}
+      role="navigation"
+      sx={{
+        position: ["fixed", "fixed", "static"],
+        boxShadow: ["nav", "nav", "none"],
       }}
     >
-      <Box
-        as={StyledNav}
-        role="navigation"
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        p={[0, 0, 3]}
         sx={{
-          position: ["fixed", "fixed", "static"],
-          boxShadow: ["nav", "nav", "none"],
+          maxWidth: ["100%", "100%", "92%"],
+          margin: "0 auto",
         }}
       >
-        <Flex
-          justifyContent="space-between"
-          alignItems="center"
-          p={[0, 0, 3]}
+        <Box
           sx={{
-            maxWidth: ["100%", "100%", "92%"],
-            margin: "0 auto",
+            display: ["none", "none", "block"],
+            minWidth: "4rem",
           }}
         >
-          <Box
-            sx={{
-              display: ["none", "none", "block"],
-              minWidth: "4rem",
-            }}
-          >
-            <GatsbyImg fluid={type === "pestcontrol" ? pestLogo : cleanLogo} />
+          <GatsbyImg fluid={type === "pestcontrol" ? pestLogo : cleanLogo} />
+        </Box>
+
+        <Flex
+          maxWidth="800px"
+          width="100%"
+          className="nav"
+          as="ul"
+          padding="3"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Box as="li">
+            <AniLink
+              activeClassName="active"
+              hex={theme["colors"].primaryLight}
+              paintDrip
+              to={`/${type}`}
+              className="nav-item"
+            >
+              <Box
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                as="span"
+              >
+                <GatsbyImg
+                  fluid={type === "pestcontrol" ? pestLogo : cleanLogo}
+                  className="nav-icon"
+                  alt="tiptop pest control"
+                />
+              </Box>
+
+              <span>Home</span>
+            </AniLink>
           </Box>
+          <Box>
+            <AniLink
+              activeClassName="active"
+              hex={theme["colors"].primaryLight}
+              paintDrip
+              to={`/${type}/about`}
+              className="nav-item"
+            >
+              <Box
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                as={IoIosInformationCircle}
+                className="nav-icon"
+              />
+              <span>Why us?</span>
+            </AniLink>
+          </Box>
+          <Box as="li">
+            <AniLink
+              activeClassName="active"
+              hex={theme["colors"].primaryLight}
+              paintDrip
+              to={`/${type}/services`}
+              className="nav-item"
+            >
+              <Box
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                as={IoIosList}
+                className="nav-icon"
+              />
 
-          <Flex
-            maxWidth="800px"
-            width="100%"
-            className="nav"
-            as="ul"
-            padding="3"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            <Box as="li">
-              <AniLink
-                activeClassName="active"
-                hex={theme["colors"].primaryLight}
-                paintDrip
-                to={`/${type}`}
-                className="nav-item"
-              >
-                <Box
-                  sx={{
-                    display: ["block", "block", "none"],
-                  }}
-                  as="span"
-                >
-                  <GatsbyImg
-                    fluid={type === "pestcontrol" ? pestLogo : cleanLogo}
-                    className="nav-icon"
-                    alt="tiptop pest control"
-                  />
-                </Box>
+              <span>Services</span>
+            </AniLink>
+          </Box>
+          <Box as="li">
+            <a
+              href="#"
+              role="button"
+              onClick={onOpenClick}
+              className="nav-item"
+            >
+              <Box
+                sx={{
+                  display: ["block", "block", "none"],
+                }}
+                as={IoIosMail}
+                className="nav-icon"
+              />
 
-                <span>Home</span>
-              </AniLink>
-            </Box>
-            <Box>
-              <AniLink
-                activeClassName="active"
-                hex={theme["colors"].primaryLight}
-                paintDrip
-                to={`/${type}/about`}
-                className="nav-item"
-              >
-                <Box
-                  sx={{
-                    display: ["block", "block", "none"],
-                  }}
-                  as={IoIosInformationCircle}
-                  className="nav-icon"
-                />
-                <span>Why us?</span>
-              </AniLink>
-            </Box>
-            <Box as="li">
-              <AniLink
-                activeClassName="active"
-                hex={theme["colors"].primaryLight}
-                paintDrip
-                to={`/${type}/services`}
-                className="nav-item"
-              >
-                <Box
-                  sx={{
-                    display: ["block", "block", "none"],
-                  }}
-                  as={IoIosList}
-                  className="nav-icon"
-                />
-
-                <span>Services</span>
-              </AniLink>
-            </Box>
-            <Box as="li">
-              <a
-                href="#"
-                role="button"
-                onClick={onOpenClick}
-                className="nav-item"
-              >
-                <Box
-                  sx={{
-                    display: ["block", "block", "none"],
-                  }}
-                  as={IoIosMail}
-                  className="nav-icon"
-                />
-
-                <span>Contact</span>
-              </a>
-            </Box>
-          </Flex>
+              <span>Contact</span>
+            </a>
+          </Box>
         </Flex>
-      </Box>
-    </TransitionPortal>
+      </Flex>
+    </Box>
   )
 }
 

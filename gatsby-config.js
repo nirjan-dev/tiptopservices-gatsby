@@ -4,7 +4,12 @@ require("dotenv").config({
 module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-transition-link`,
+      // options: {
+      //   layout: require.resolve("./src/layouts/pageLayout.tsx"),
+      // },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
