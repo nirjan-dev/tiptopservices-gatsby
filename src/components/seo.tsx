@@ -40,7 +40,7 @@ const SEO = ({
     <Helmet>
       <title>{title}</title>
       <link rel="canonical" href={url} />
-
+      <link rel="icon" href="favicon.png" />
       <link
         href="https://fonts.googleapis.com/css?family=Lora|Montserrat&display=swap"
         rel="stylesheet"

@@ -171,9 +171,10 @@ function Nav({ onOpenClick, type }) {
             </Box>
             <Box as="li">
               <AniLink
-              activeClassName="active"
+                activeClassName="active"
                 to={`/${type}/contact`}
-                href="#"
+                hex={theme["colors"].primaryLight}
+                paintDrip
                 className="nav-item"
               >
                 <Box

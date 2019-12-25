@@ -38,7 +38,7 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": type,
+        "form-name": `contact-${type}`,
         ...formattedFormData,
       }),
     })
