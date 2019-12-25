@@ -1,10 +1,11 @@
-import React, { Children } from "react"
+import React, { Children, useState } from "react"
 import ReactModal from "react-modal"
 import { Box } from "rebass"
 import Button from "./button"
 import { Label, Input, Textarea } from "@rebass/forms"
 import { navigate } from "gatsby"
 function ContactModal({ isOpen, children, onCloseClick, type }) {
+  const [loading, setLoading] = useState(false)
   const getFormData = form => {
     return Object.values(form).reduce((obj, field: any) => {
       obj[field.name] = field.value
@@ -20,6 +21,7 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
 
   const handleSubmit = e => {
     e.preventDefault()
+    setLoading(true)
     const formData: any = getFormData(e.target)
 
     const formattedFormData: any = {
@@ -28,7 +30,7 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
       address: formData.address,
     }
 
-    if ((type = "pestcontrol")) {
+    if (type === "pestcontrol") {
       formattedFormData.pest = formData.pest
     } else {
       formattedFormData.service = formattedFormData.service
@@ -43,10 +45,13 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
       }),
     })
       .then(() => {
+        setLoading(false)
         navigate(`${type}/thanks`)
         onCloseClick()
       })
-      .catch(error => {})
+      .catch(error => {
+        setLoading(false)
+      })
   }
 
   ReactModal.setAppElement("#___gatsby")
@@ -127,8 +132,8 @@ function ContactModal({ isOpen, children, onCloseClick, type }) {
                   gridTemplateColumns: "repeat(auto-fit, minmax(10rem, 1fr))",
                 }}
               >
-                <Button variant="primary" type="submit">
-                  Get a free quote
+                <Button variant="primary" type="submit" disabled={loading}>
+                  {loading ? "Sending..." : "Get a free quote"}
                 </Button>
 
                 <Button variant="outline" onClick={() => onCloseClick()}>

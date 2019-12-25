@@ -170,11 +170,10 @@ function Nav({ onOpenClick, type }) {
               </AniLink>
             </Box>
             <Box as="li">
-              <AniLink
-                activeClassName="active"
-                to={`/${type}/contact`}
-                hex={theme["colors"].primaryLight}
-                paintDrip
+              <a
+                href="#"
+                role="button"
+                onClick={onOpenClick}
                 className="nav-item"
               >
                 <Box
@@ -186,7 +185,7 @@ function Nav({ onOpenClick, type }) {
                 />
 
                 <span>Contact</span>
-              </AniLink>
+              </a>
             </Box>
           </Flex>
         </Flex>
