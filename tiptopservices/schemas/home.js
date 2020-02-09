@@ -5,6 +5,7 @@ export default {
   title: "Home Screen Settings",
   description: "Edit the setting here to change the home screen details",
   type: "document",
+  liveEdit: true,
   icon,
   fields: [
     {

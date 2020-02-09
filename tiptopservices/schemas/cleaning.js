@@ -5,6 +5,7 @@ export default {
   title: "Cleaning Site Settings",
   description: "Edit the setting here to change the cleaning site details",
   type: "document",
+  liveEdit: true,
   icon,
   fields: [
     {

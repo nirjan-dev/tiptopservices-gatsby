@@ -5,6 +5,7 @@ export default {
   title: "Pest Control Settings",
   description: "Edit the setting here to change the pest control site details",
   type: "document",
+  liveEdit: true,
   icon,
   fields: [
     {
