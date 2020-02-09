@@ -27,7 +27,7 @@ const HomeConatiner = styled.div`
   }
 
   .tiptop-page {
-    width: 50vw;
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
