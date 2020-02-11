@@ -5,7 +5,7 @@ export default {
   title: "Services",
   description: "Add and Edit services",
   type: "document",
-  liveEdit: true,
+  //liveEdit: true,
   icon,
   fields: [
     {

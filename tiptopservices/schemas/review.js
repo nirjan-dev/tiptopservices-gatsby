@@ -5,7 +5,7 @@ export default {
   title: "Customer Review",
   description: "Add and Edit reviews",
   type: "document",
-  liveEdit: true,
+  //liveEdit: true,
   icon,
   fields: [
     {
